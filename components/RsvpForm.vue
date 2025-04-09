@@ -33,7 +33,7 @@
 
                 <div class="w-full mb-4">
                     <input
-                        v-model="form.name"
+                        v-model="form.firstName"
                         type="text"
                         placeholder="სახელი"
                         class="w-full p-3 mb-3 border border-gray-300 rounded-full text-black bg-[#f8f8f8]"
@@ -56,7 +56,7 @@
                     <button
                         @click="nextStep"
                         class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
-                        :disabled="!form.surname || !form.name"
+                        :disabled="!form.surname || !form.firstName"
                     >
                         შემდეგი
                     </button>
@@ -426,7 +426,7 @@ export default {
             gifLoaded: false,
             gifFinished: false,
             form: {
-                name: '',
+                firstName: '',
                 surname: '',
                 coming: '',
                 food: '',
@@ -477,7 +477,7 @@ export default {
 
                 // Prepare the data to send to the server
                 const dataToSend = {
-                    name: this.form.name || '',  // Using empty string as fallback
+                    firstName: this.form.firstName || '',  // Using empty string as fallback
                     surname: this.form.surname || '',  // Using empty string as fallback
                     coming: this.form.coming,
                     food: this.form.food,

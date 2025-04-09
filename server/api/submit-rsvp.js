@@ -8,7 +8,7 @@ async function ensureTableExists() {
         await sql`
       CREATE TABLE IF NOT EXISTS rsvps (
         id SERIAL PRIMARY KEY,
-        name VARCHAR(255),
+        firstName VARCHAR(255),
         surname VARCHAR(255),
         coming VARCHAR(50) NOT NULL,
         food VARCHAR(255),
@@ -45,8 +45,8 @@ export default defineEventHandler(async (event) => {
 
         // Insert the new RSVP
                 const result = await sql`
-              INSERT INTO rsvps (name, surname, coming, food, drink, music, extra)
-              VALUES (${name || null}, ${surname || null}, ${coming}, ${food || null}, ${drink || null}, ${music || null}, ${extra || null})
+              INSERT INTO rsvps (firstName, surname, coming, food, drink, music, extra)
+              VALUES (${firstName || null}, ${surname || null}, ${coming}, ${food || null}, ${drink || null}, ${music || null}, ${extra || null})
               RETURNING id
         `
 
