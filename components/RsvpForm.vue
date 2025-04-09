@@ -2,53 +2,22 @@
 <div class="w-full max-w-md mx-auto">
     <div class="relative overflow-hidden" style="height: 550px;">
         <!-- Step 1: Invitation -->
-        <!-- Step 1: Invitation -->
+
         <div
             class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
             :style="{ transform: `translateX(${currentStep === 0 ? '0' : '-100%'})`, opacity: currentStep === 0 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-2xl font-bold mb-4 text-black">გეპატიჟები</h1>
-                <p class="mb-2 text-black">გაზაფხულზე გაზაფხულზე</p>
+                <p class="text-2xl font-bold mb-4 text-black">გაზაფხულზე გაზაფხულზე</p>
                 <p class="mb-2 text-black">15 აპრილი, 20:00 საათი</p>
                 <p class="mb-6 text-black">გაზაფხულის ქუჩა №30</p>
 
-                <!-- GIF that plays once then gets replaced -->
-                <img
-                    v-if="!gifFinished"
-                    src="/mascot-animation.gif"
-                    alt="Animation"
-                    class="w-48 h-auto mb-8"
-                    @load="onGifLoad"
-                    ref="gif"
-                />
-
-                <!-- Static image that replaces the GIF -->
-                <img
-                    v-else
-                    src="/mascot.png"
-                    alt="Mascot"
-                    class="w-48 h-auto mb-8"
-                />
-
-                <div class="w-full mb-4">
-                    <input
-                        v-model="form.name"
-                        type="text"
-                        placeholder="სახელი"
-                        class="w-full p-3 mb-3 border border-gray-300 rounded-full text-black bg-[#f8f8f8]"
-                    />
-                    <input
-                        v-model="form.surname"
-                        type="text"
-                        placeholder="გვარი"
-                        class="w-full p-3 border border-gray-300 rounded-full text-black bg-[#f8f8f8]"
-                    />
-                </div>
+                <img src="/mascot.png" alt="Mascot" class="w-48 h-auto mb-8" />
 
                 <button
                     @click="nextStep"
-                    class="w-full py-3 bg-[#e63723] text-white rounded-full font-medium hover:bg-[#d22e1b] transition-colors border border-[#e63723]"
+                    class="w-full py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
                 >
                     შემდეგი
                 </button>
@@ -378,6 +347,23 @@
                 <p class="mb-6 text-black">გაზაფხულის ქუჩა №30</p>
 
                 <img src="/mascot-smile.png" alt="Mascot" class="w-32 h-auto mb-8" />
+
+                <!-- GIF that plays once then gets replaced -->
+                <img
+                    v-if="!gifFinished"
+                    src="/mascot-animation.gif"
+                    alt="Animation"
+                    class="w-48 h-auto mb-8"
+                    ref="gif"
+                />
+
+                <!-- Static image that replaces the GIF -->
+                <img
+                    v-else
+                    src="/mascot.png"
+                    alt="Mascot"
+                    class="w-48 h-auto mb-8"
+                />
             </div>
         </div>
     </div>
@@ -404,18 +390,21 @@ export default {
         }
     },
     methods: {
-        onGifLoad() {
-            this.gifLoaded = true;
-            // Get GIF duration by analyzing the file (approximate method)
-            // Most GIFs are typically a few seconds long
-            // For this example, we'll use a timeout of 3 seconds
-            setTimeout(() => {
-                this.gifFinished = true;
-            }, 3000); // Adjust this value to match your GIF duration
-        },
         nextStep() {
-            if (this.currentStep < 8) {
+            if (this.currentStep < 9) {
                 this.currentStep++
+            }
+            if (this.currentStep === 7) {
+
+                this.gifFinished = true
+
+                setTimeout(() => {
+                    this.gifFinished = false;
+                }, 1000);
+
+                setTimeout(() => {
+                    this.gifFinished = true;
+                }, 3000);
             }
         },
         prevStep() {
