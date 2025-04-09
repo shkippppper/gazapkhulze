@@ -345,7 +345,7 @@
                 <p class="mb-2 text-black">15 აპრილი, 20:00 საათი</p>
                 <p class="mb-6 text-black">გაზაფხულის ქუჩა №30</p>
 
-                <img src="/mascot-smile.png" alt="Mascot" class="w-60 h-auto mb-8" />
+                <img src="/mascot-smile.png" alt="Mascot" class="w-48 h-auto mb-8" />
             </div>
         </div>
     </div>
