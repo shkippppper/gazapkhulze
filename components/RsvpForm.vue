@@ -327,7 +327,7 @@
                 <p class="mb-8 text-lg text-black">შემდეგ დღეს აიღეთ Dayoff-ი!</p>
 
                 <button
-                    @click="resetForm"
+                    @click="nextStep"
                     class="w-full py-3 bg-gray-200 text-black rounded-full font-medium hover:bg-gray-300 transition-colors"
                 >
                     შემდეგი
