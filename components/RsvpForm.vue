@@ -29,7 +29,7 @@
             :style="{ transform: `translateX(${currentStep === 1 ? '0' : currentStep < 1 ? '100%' : '-100%'})`, opacity: currentStep === 1 ? '1' : '0' }"
         >
             <div class="flex flex-col">
-                <h2 class="text-xl font-bold mb-6 text-black">1. მოდიხართ თუ არა?</h2>
+                <h2 class="text-xl font-bold mb-6 text-black">1. რომელი ხარ?</h2>
 
                 <div class="w-full mb-4">
                     <input
@@ -70,7 +70,7 @@
             :style="{ transform: `translateX(${currentStep === 2 ? '0' : currentStep < 2 ? '100%' : '-100%'})`, opacity: currentStep === 2 ? '1' : '0' }"
         >
             <div class="flex flex-col">
-                <h2 class="text-xl font-bold mb-6 text-black">1. მოდიხართ თუ არა?</h2>
+                <h2 class="text-xl font-bold mb-6 text-black">2. მოდიხარ თუ არა?</h2>
 
                 <div class="space-y-3 mb-8">
                     <button
@@ -120,7 +120,7 @@
             :style="{ transform: `translateX(${currentStep === 3 ? '0' : currentStep < 3 ? '100%' : '-100%'})`, opacity: currentStep === 3 ? '1' : '0' }"
         >
             <div class="flex flex-col">
-                <h2 class="text-xl font-bold mb-6 text-black">2. რას ჭამ?</h2>
+                <h2 class="text-xl font-bold mb-6 text-black">3. რას ჭამ?</h2>
 
                 <div class="space-y-3 mb-8">
                     <button
@@ -177,7 +177,7 @@
             :style="{ transform: `translateX(${currentStep === 4 ? '0' : currentStep < 4 ? '100%' : '-100%'})`, opacity: currentStep === 4 ? '1' : '0' }"
         >
             <div class="flex flex-col">
-                <h2 class="text-xl font-bold mb-6 text-black">3. რას დალევ?</h2>
+                <h2 class="text-xl font-bold mb-6 text-black">4. რას დალევ?</h2>
 
                 <div class="space-y-3 mb-8">
                     <button
@@ -241,7 +241,7 @@
             :style="{ transform: `translateX(${currentStep === 5 ? '0' : currentStep < 5 ? '100%' : '-100%'})`, opacity: currentStep === 5 ? '1' : '0' }"
         >
             <div class="flex flex-col">
-                <h2 class="text-xl font-bold mb-6 text-black">4. მუსიკა?</h2>
+                <h2 class="text-xl font-bold mb-6 text-black">5. მუსიკა?</h2>
 
                 <div class="space-y-3 mb-8">
                     <button
@@ -312,7 +312,7 @@
             :style="{ transform: `translateX(${currentStep === 6 ? '0' : currentStep < 6 ? '100%' : '-100%'})`, opacity: currentStep === 6 ? '1' : '0' }"
         >
             <div class="flex flex-col">
-                <h2 class="text-xl font-bold mb-6 text-black">5. შეკვეთა დიჯეისთან მთვრალზე</h2>
+                <h2 class="text-xl font-bold mb-6 text-black">6. შეკვეთა დიჯეისთან მთვრალზე</h2>
 
                 <div class="mb-8">
             <textarea
