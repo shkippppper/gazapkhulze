@@ -83,7 +83,7 @@
         <!-- Step 2: Food preference -->
         <div
             class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
-            :style="{ transform: `translateX(${currentStep === 1 ? '0' : currentStep < 1 ? '100%' : '-100%'})`, opacity: currentStep === 1 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 2 ? '0' : currentStep < 1 ? '100%' : '-100%'})`, opacity: currentStep === 1 ? '1' : '0' }"
         >
             <div class="flex flex-col">
                 <h2 class="text-xl font-bold mb-6 text-black">2. რას ჭამ?</h2>
@@ -140,7 +140,7 @@
         <!-- Step 3: Drink Preference -->
         <div
             class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
-            :style="{ transform: `translateX(${currentStep === 2 ? '0' : currentStep < 2 ? '100%' : '-100%'})`, opacity: currentStep === 2 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 3 ? '0' : currentStep < 2 ? '100%' : '-100%'})`, opacity: currentStep === 2 ? '1' : '0' }"
         >
             <div class="flex flex-col">
                 <h2 class="text-xl font-bold mb-6 text-black">3. რას დალევ?</h2>
@@ -211,7 +211,7 @@
         <!-- Step 4: Music Preference -->
         <div
             class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
-            :style="{ transform: `translateX(${currentStep === 3 ? '0' : currentStep < 3 ? '100%' : '-100%'})`, opacity: currentStep === 3 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 4 ? '0' : currentStep < 3 ? '100%' : '-100%'})`, opacity: currentStep === 3 ? '1' : '0' }"
         >
             <div class="flex flex-col">
                 <h2 class="text-xl font-bold mb-6 text-black">4. მუსიკა?</h2>
@@ -282,7 +282,7 @@
         <!-- Step 5: Extra Comments -->
         <div
             class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
-            :style="{ transform: `translateX(${currentStep === 4 ? '0' : currentStep < 4 ? '100%' : '-100%'})`, opacity: currentStep === 4 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 5 ? '0' : currentStep < 4 ? '100%' : '-100%'})`, opacity: currentStep === 4 ? '1' : '0' }"
         >
             <div class="flex flex-col">
                 <h2 class="text-xl font-bold mb-6 text-black">5. შეკვეთა დიჯეისთან მთვრალზე</h2>
@@ -317,7 +317,7 @@
         <!-- Step 6: Confirmation -->
         <div
             class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
-            :style="{ transform: `translateX(${currentStep === 5 ? '0' : '100%'})`, opacity: currentStep === 5 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 6 ? '0' : '100%'})`, opacity: currentStep === 5 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-2xl font-bold mb-4 text-black">რეკომენდაცია!</h1>
@@ -338,7 +338,7 @@
         <!-- Last step: Finish -->
         <div
             class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
-            :style="{ transform: `translateX(${currentStep === 6 ? '0' : '-100%'})`, opacity: currentStep === 0 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 7 ? '0' : '-100%'})`, opacity: currentStep === 0 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-2xl font-bold mb-4 text-black">გელოდები</h1>
