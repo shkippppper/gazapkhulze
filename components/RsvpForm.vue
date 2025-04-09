@@ -1,6 +1,6 @@
 <template>
 <div class="w-full max-w-md mx-auto">
-    <div class="relative overflow-hidden" style="height: 600px;">
+    <div class="relative overflow-hidden" style="height: 550px;">
         <!-- Step 1: Invitation -->
         <div
             class="absolute w-full bg-[#f8f8f8] rounded-lg shadow-lg transition-all duration-500 p-6 text-black"
