@@ -42,11 +42,11 @@ export default defineEventHandler(async (event) => {
         }
 
         // Insert the new RSVP
-        const result = await sql`
-      INSERT INTO rsvps (coming, food, drink, music, extra)
-      VALUES (${coming}, ${food || null}, ${drink || null}, ${music || null}, ${extra || null})
-      RETURNING id
-    `
+                const result = await sql`
+              INSERT INTO rsvps (name, surname, coming, food, drink, music, extra)
+              VALUES (${name || null}, ${surname || null}, ${coming}, ${food || null}, ${drink || null}, ${music || null}, ${extra || null})
+              RETURNING id
+        `
 
         if (result && result.length > 0) {
             return {
