@@ -3,7 +3,7 @@
     <div class="relative overflow-hidden" style="height: 600px;">
         <!-- Step 1: Invitation -->
         <div
-            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
+            class="absolute w-full bg-[#f8f8f8] rounded-lg shadow-lg transition-all duration-500 p-6 text-black"
             :style="{ transform: `translateX(${currentStep === 0 ? '0' : '-100%'})`, opacity: currentStep === 0 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
@@ -25,7 +25,7 @@
 
         <!-- Step 2: Coming or not -->
         <div
-            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
+            class="absolute w-full bg-[#f8f8f8] rounded-lg shadow-lg transition-all duration-500 p-6 text-black"
             :style="{ transform: `translateX(${currentStep === 1 ? '0' : currentStep < 1 ? '100%' : '-100%'})`, opacity: currentStep === 1 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -82,7 +82,7 @@
 
         <!-- Step 2: Food preference -->
         <div
-            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
+            class="absolute w-full bg-[#f8f8f8] rounded-lg shadow-lg transition-all duration-500 p-6 text-black"
             :style="{ transform: `translateX(${currentStep === 2 ? '0' : currentStep < 2 ? '100%' : '-100%'})`, opacity: currentStep === 2 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -139,7 +139,7 @@
 
         <!-- Step 3: Drink Preference -->
         <div
-            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
+            class="absolute w-full bg-[#f8f8f8] rounded-lg shadow-lg transition-all duration-500 p-6 text-black"
             :style="{ transform: `translateX(${currentStep === 3 ? '0' : currentStep < 3 ? '100%' : '-100%'})`, opacity: currentStep === 3 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -210,7 +210,7 @@
 
         <!-- Step 4: Music Preference -->
         <div
-            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
+            class="absolute w-full bg-[#f8f8f8] rounded-lg shadow-lg transition-all duration-500 p-6 text-black"
             :style="{ transform: `translateX(${currentStep === 4 ? '0' : currentStep < 4 ? '100%' : '-100%'})`, opacity: currentStep === 4 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -281,7 +281,7 @@
 
         <!-- Step 5: Extra Comments -->
         <div
-            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
+            class="absolute w-full bg-[#f8f8f8] rounded-lg shadow-lg transition-all duration-500 p-6 text-black"
             :style="{ transform: `translateX(${currentStep === 5 ? '0' : currentStep < 5 ? '100%' : '-100%'})`, opacity: currentStep === 5 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -290,7 +290,7 @@
                 <div class="mb-8">
             <textarea
                 v-model="form.extra"
-                class="w-full p-4 border border-gray-300 rounded-lg text-black bg-white"
+                class="w-full p-4 border border-gray-300 rounded-lg text-black bg-[#f8f8f8]"
                 rows="5"
                 placeholder="შეიყვანეთ მუსიკის ლინკი/სახელი"
             ></textarea>
@@ -316,7 +316,7 @@
 
         <!-- Step 6: Confirmation -->
         <div
-            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
+            class="absolute w-full bg-[#f8f8f8] rounded-lg shadow-lg transition-all duration-500 p-6 text-black"
             :style="{ transform: `translateX(${currentStep === 6 ? '0' : currentStep < 6 ? '100%' : '-100%'})`, opacity: currentStep === 6 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
@@ -337,7 +337,7 @@
 
         <!-- Last step: Finish -->
         <div
-            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
+            class="absolute w-full bg-[#f8f8f8] rounded-lg shadow-lg transition-all duration-500 p-6 text-black"
             :style="{ transform: `translateX(${currentStep === 7 ? '0' : currentStep < 7 ? '100%' : '-100%'})`, opacity: currentStep === 7 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
