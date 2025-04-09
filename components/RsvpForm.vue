@@ -394,6 +394,26 @@
                 />
             </div>
         </div>
+
+        <!-- No Step -->
+
+        <div
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            :style="{ transform: `translateX(${currentStep === 0 ? '0' : '-100%'})`, opacity: currentStep === 0 ? '1' : '0' }"
+        >
+            <div class="flex flex-col items-center text-center">
+                <h1 class="text-2xl font-bold mb-4 text-black">რას ნიშნავს არ მოდიხარ?!</h1>
+
+                <img src="/mascot-angry.png" alt="Mascot" class="w-64 h-auto mb-8" />
+
+                <button
+                    @click="goBackToForm"
+                    class="w-full py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
+                >
+                    გადავიფიქრე
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 </template>
@@ -419,9 +439,9 @@ export default {
     },
     methods: {
         nextStep() {
-            // if (this.form.coming === "არა") {
-            //     this.currentStep = 9
-            // }
+            if (this.form.coming === "არა") {
+                this.currentStep = 9
+            }
 
             if (this.currentStep < 10) {
                 this.currentStep++
@@ -444,6 +464,9 @@ export default {
             if (this.currentStep > 0) {
                 this.currentStep--
             }
+        },
+        goBackToForm() {
+            this.currentStep = 2
         },
         selectOption(field, value) {
             this.form[field] = value
