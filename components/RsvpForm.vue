@@ -7,10 +7,10 @@
             :style="{ transform: `translateX(${currentStep === 0 ? '0' : '-100%'})`, opacity: currentStep === 0 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
-                <h1 class="text-2xl font-bold mb-4 text-black">ვეპატიჟები</h1>
-                <p class="mb-2 text-black">ვაჟაფშაველაზე ვაჟაფშაველაზე</p>
-                <p class="mb-2 text-black">15 აპრილი, 19:00 საათი</p>
-                <p class="mb-6 text-black">ვაჟაფშაველას ქუჩა №30</p>
+                <h1 class="text-2xl font-bold mb-4 text-black">გეპატიჟები</h1>
+                <p class="mb-2 text-black">გაზაფხულზე გაზაფხულზე</p>
+                <p class="mb-2 text-black">15 აპრილი, 20:00 საათი</p>
+                <p class="mb-6 text-black">გაზაფხულის ქუჩა №30</p>
 
                 <img src="/mascot.png" alt="Mascot" class="w-48 h-auto mb-8" />
 
@@ -29,7 +29,7 @@
             :style="{ transform: `translateX(${currentStep === 1 ? '0' : currentStep < 1 ? '100%' : '-100%'})`, opacity: currentStep === 1 ? '1' : '0' }"
         >
             <div class="flex flex-col">
-                <h2 class="text-xl font-bold mb-6 text-black">1. მოხვალთ თუ არა?</h2>
+                <h2 class="text-xl font-bold mb-6 text-black">1. მოდიხართ თუ არა?</h2>
 
                 <div class="space-y-3 mb-8">
                     <button
@@ -80,13 +80,70 @@
             </div>
         </div>
 
+        <!-- Step 2: Food preference -->
+        <div
+            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
+            :style="{ transform: `translateX(${currentStep === 1 ? '0' : currentStep < 1 ? '100%' : '-100%'})`, opacity: currentStep === 1 ? '1' : '0' }"
+        >
+            <div class="flex flex-col">
+                <h2 class="text-xl font-bold mb-6 text-black">2. რას ჭამ?</h2>
+
+                <div class="space-y-3 mb-8">
+                    <button
+                        @click="selectOption('food', 'ყველაფერს')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors border"
+                        :class="form.food === 'ყველაფერს' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                    >
+                        ყველაფერს
+                    </button>
+                    <button
+                        @click="selectOption('food', 'ვეგანი ვარ')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors border"
+                        :class="form.food === 'ვეგანი ვარ' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                    >
+                        ვეგანი ვარ
+                    </button>
+                    <button
+                        @click="selectOption('food', 'ვეგეტარიანელი ვარ')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors border"
+                        :class="form.food === 'ვეგეტარიანელი ვარ' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                    >
+                        ვეგეტარიანელი ვარ
+                    </button>
+                    <button
+                        @click="selectOption('food', 'მარხვაზე ვარ')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors border"
+                        :class="form.food === 'მარხვაზე ვარ' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                    >
+                        მარხვაზე ვარ
+                    </button>
+                </div>
+
+                <div class="flex justify-between">
+                    <button
+                        @click="prevStep"
+                        class="px-8 py-3 bg-gray-200 text-black rounded-full font-medium hover:bg-gray-300 transition-colors border border-gray-300"
+                    >
+                        დაბრუნება
+                    </button>
+                    <button
+                        @click="nextStep"
+                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border border-red-500"
+                        :disabled="!form.coming"
+                    >
+                        შემდეგი
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Step 3: Drink Preference -->
         <div
             class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
             :style="{ transform: `translateX(${currentStep === 2 ? '0' : currentStep < 2 ? '100%' : '-100%'})`, opacity: currentStep === 2 ? '1' : '0' }"
         >
             <div class="flex flex-col">
-                <h2 class="text-xl font-bold mb-6 text-black">3. რას სვამ?</h2>
+                <h2 class="text-xl font-bold mb-6 text-black">3. რას დალევ?</h2>
 
                 <div class="space-y-3 mb-8">
                     <button
@@ -104,18 +161,32 @@
                         ლუდი
                     </button>
                     <button
-                        @click="selectOption('drink', 'არაალკოჰოლური')"
+                        @click="selectOption('drink', 'არაყი')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.drink === 'არაალკოჰოლური' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                        :class="form.drink === 'არაყი' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
                     >
-                        არაალკოჰოლური
+                        არაყი
                     </button>
                     <button
-                        @click="selectOption('drink', 'არაფერი')"
+                        @click="selectOption('drink', 'არ ვსვავ')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.drink === 'არაფერი' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                        :class="form.drink === 'არ ვსვავ' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
                     >
-                        არაფერი
+                        არ ვსვავ
+                    </button>
+                    <button
+                        @click="selectOption('drink', 'სხვა')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors border"
+                        :class="form.drink === 'სხვა' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                    >
+                        სხვა
+                    </button>
+                    <button
+                        @click="selectOption('drink', 'ჩემით მოვიტან')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors border"
+                        :class="form.drink === 'ჩემით მოვიტან' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                    >
+                        ჩემით მოვიტან
                     </button>
                 </div>
 
@@ -143,15 +214,15 @@
             :style="{ transform: `translateX(${currentStep === 3 ? '0' : currentStep < 3 ? '100%' : '-100%'})`, opacity: currentStep === 3 ? '1' : '0' }"
         >
             <div class="flex flex-col">
-                <h2 class="text-xl font-bold mb-6 text-black">4. რა მუსიკა გიყვარს?</h2>
+                <h2 class="text-xl font-bold mb-6 text-black">4. მუსიკა?</h2>
 
                 <div class="space-y-3 mb-8">
                     <button
-                        @click="selectOption('music', 'როკი')"
+                        @click="selectOption('music', 'ქართულები და ჩქარები')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.music === 'როკი' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                        :class="form.music === 'ქართულები და ჩქარები' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
                     >
-                        როკი
+                        ქართულები და ჩქარები
                     </button>
                     <button
                         @click="selectOption('music', 'პოპი')"
@@ -161,18 +232,32 @@
                         პოპი
                     </button>
                     <button
-                        @click="selectOption('music', 'ქართული')"
+                        @click="selectOption('music', 'ჰაუსი')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.music === 'ქართული' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                        :class="form.music === 'ჰაუსი' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
                     >
-                        ქართული
+                        ჰაუსი
                     </button>
                     <button
-                        @click="selectOption('music', 'ელექტრონული')"
+                        @click="selectOption('music', 'კლასიკა')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.music === 'ელექტრონული' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                        :class="form.music === 'კლასიკა' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
                     >
-                        ელექტრონული
+                        კლასიკა
+                    </button>
+                    <button
+                        @click="selectOption('music', 'რეპი')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors border"
+                        :class="form.music === 'რეპი' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                    >
+                        რეპი
+                    </button>
+                    <button
+                        @click="selectOption('music', 'სულერთია')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors border"
+                        :class="form.music === 'სულერთია' ? 'bg-red-400 text-white border-red-500' : 'bg-gray-200 text-black border-gray-300'"
+                    >
+                        სულერთია
                     </button>
                 </div>
 
@@ -200,14 +285,14 @@
             :style="{ transform: `translateX(${currentStep === 4 ? '0' : currentStep < 4 ? '100%' : '-100%'})`, opacity: currentStep === 4 ? '1' : '0' }"
         >
             <div class="flex flex-col">
-                <h2 class="text-xl font-bold mb-6 text-black">5. დამატებითი ინფორმაცია</h2>
+                <h2 class="text-xl font-bold mb-6 text-black">5. შეკვეთა დიჯეისთან მთვრალზე</h2>
 
                 <div class="mb-8">
             <textarea
                 v-model="form.extra"
                 class="w-full p-4 border border-gray-300 rounded-lg text-black bg-white"
                 rows="5"
-                placeholder="შეიყვანეთ ნებისმიერი დამატებითი ინფორმაცია..."
+                placeholder="შეიყვანეთ მუსიკის ლინკი/სახელი"
             ></textarea>
                 </div>
 
@@ -223,7 +308,7 @@
                         class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border border-red-500"
                         :disabled="isSubmitting"
                     >
-                        {{ isSubmitting ? 'გაგზავნა...' : 'გაგზავნა' }}
+                        {{ isSubmitting ? 'შენახვა...' : 'შენახვა' }}
                     </button>
                 </div>
             </div>
@@ -235,18 +320,32 @@
             :style="{ transform: `translateX(${currentStep === 5 ? '0' : '100%'})`, opacity: currentStep === 5 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
-                <h1 class="text-2xl font-bold mb-4 text-black">რეგისტრაცია!</h1>
+                <h1 class="text-2xl font-bold mb-4 text-black">რეკომენდაცია!</h1>
 
                 <img src="/mascot-head.png" alt="Mascot Head" class="w-48 h-auto mb-4" />
 
-                <p class="mb-8 text-lg text-black">შემდეგ დღეს აიღე Dayoff-ი!</p>
+                <p class="mb-8 text-lg text-black">შემდეგ დღეს აიღეთ Dayoff-ი!</p>
 
                 <button
                     @click="resetForm"
                     class="w-full py-3 bg-gray-200 text-black rounded-full font-medium hover:bg-gray-300 transition-colors"
                 >
-                    მთავარი გვერდზება
+                    შემდეგი
                 </button>
+            </div>
+        </div>
+
+        <!-- Last step: Finish -->
+        <div
+            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6 text-black border border-gray-300"
+            :style="{ transform: `translateX(${currentStep === 6 ? '0' : '-100%'})`, opacity: currentStep === 0 ? '1' : '0' }"
+        >
+            <div class="flex flex-col items-center text-center">
+                <h1 class="text-2xl font-bold mb-4 text-black">გელოდები</h1>
+                <p class="mb-2 text-black">15 აპრილი, 20:00 საათი</p>
+                <p class="mb-6 text-black">გაზაფხულის ქუჩა №30</p>
+
+                <img src="/mascot-smile.png" alt="Mascot" class="w-60 h-auto mb-8" />
             </div>
         </div>
     </div>
