@@ -1,6 +1,6 @@
 import postgres from 'postgres'
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' })
+const sql = postgres(process.env.POSTGRES_URL || '', { ssl: 'require' })
 
 async function seed() {
     const createTable = await sql`
@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
     } catch (error) {
         if (
             error instanceof Error &&
-            error?.message === `relation "rsvps" does not exist`
+            error && error.message === 'relation "rsvps" does not exist'
         ) {
             console.log('Table does not exist, creating and seeding it with example data now...')
             // Table is not created yet

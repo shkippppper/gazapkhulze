@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-const { data, refresh } = useFetch('/api/get-rsvps')
+const { data, refresh } = useFetch('/api/get-rsvp')
 
 const refreshData = async () => {
     await refresh()
