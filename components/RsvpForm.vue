@@ -353,16 +353,18 @@
                     v-if="!gifFinished"
                     src="/mascot-animation.gif"
                     alt="Animation"
-                    class="w-48 h-auto mb-8"
+                    class="absolute h-auto"
+                    style="width: 120px; top: 180px; right: 20%;"
                     ref="gif"
                 />
 
-                <!-- Static image that replaces the GIF -->
+                <!-- Static image that replaces the GIF - with absolute positioning -->
                 <img
-                    v-else
+                    v-else-if="gifLoaded && gifFinished"
                     src="/mascot.png"
                     alt="Mascot"
-                    class="w-48 h-auto mb-8"
+                    class="absolute h-auto"
+                    style="width: 120px; top: 180px; right: 20%;"
                 />
             </div>
         </div>
@@ -400,6 +402,7 @@ export default {
 
                 setTimeout(() => {
                     this.gifFinished = false;
+                    this.gifLoaded = true
                 }, 1000);
 
                 setTimeout(() => {
