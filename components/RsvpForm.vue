@@ -1,46 +1,163 @@
 <template>
-<div class="w-full max-w-xl p-12 mx-auto mt-8 rounded-lg shadow-xl dark:bg-white/10 bg-white/30 ring-1 ring-gray-900/5 backdrop-blur-lg">
-    <h2 class="mb-6 text-xl font-semibold">Submit RSVP</h2>
+<div class="w-full max-w-md mx-auto">
+    <div class="relative overflow-hidden" style="height: 600px;">
+        <!-- Step 1: Invitation -->
+        <div
+            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6"
+            :style="{ transform: `translateX(${currentStep === 0 ? '0' : '-100%'})`, opacity: currentStep === 0 ? '1' : '0' }"
+        >
+            <div class="flex flex-col items-center text-center">
+                <h1 class="text-2xl font-bold mb-4">ვეპატიჟები</h1>
+                <p class="mb-2">ვაჟაფშაველაზე ვაჟაფშაველაზე</p>
+                <p class="mb-2">15 აპრილი, 19:00 საათი</p>
+                <p class="mb-6">ვაჟაფშაველას ქუჩა №30</p>
 
-    <div v-if="message" :class="['p-4 mb-4 rounded', success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800']">
-        {{ message }}
+                <img src="/mascot.png" alt="Mascot" class="w-48 h-auto mb-8" />
+
+                <button
+                    @click="nextStep"
+                    class="w-full py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors"
+                >
+                    შემდეგი
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Coming or not -->
+        <div
+            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6"
+            :style="{ transform: `translateX(${currentStep === 1 ? '0' : currentStep < 1 ? '100%' : '-100%'})`, opacity: currentStep === 1 ? '1' : '0' }"
+        >
+            <div class="flex flex-col">
+                <h2 class="text-xl font-bold mb-6">1. მოხვალთ თუ არა?</h2>
+
+                <div class="space-y-3 mb-8">
+                    <button
+                        @click="selectOption('coming', 'კი')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors"
+                        :class="form.coming === 'კი' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
+                    >
+                        კი
+                    </button>
+                    <button
+                        @click="selectOption('coming', 'არა')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors"
+                        :class="form.coming === 'არა' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
+                    >
+                        არა
+                    </button>
+                    <button
+                        @click="selectOption('coming', 'კი, +1')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors"
+                        :class="form.coming === 'კი, +1' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
+                    >
+                        კი, +1
+                    </button>
+                    <button
+                        @click="selectOption('coming', 'კი, +მეტი')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors"
+                        :class="form.coming === 'კი, +მეტი' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
+                    >
+                        კი, +მეტი
+                    </button>
+                </div>
+
+                <div class="flex justify-between">
+                    <button
+                        @click="prevStep"
+                        class="px-8 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors"
+                    >
+                        დაბრუნება
+                    </button>
+                    <button
+                        @click="nextStep"
+                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors"
+                        :disabled="!form.coming"
+                    >
+                        შემდეგი
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Food Preference -->
+        <div
+            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6"
+            :style="{ transform: `translateX(${currentStep === 2 ? '0' : currentStep < 2 ? '100%' : '-100%'})`, opacity: currentStep === 2 ? '1' : '0' }"
+        >
+            <div class="flex flex-col">
+                <h2 class="text-xl font-bold mb-6">2. რას ჭამ?</h2>
+
+                <div class="space-y-3 mb-8">
+                    <button
+                        @click="selectOption('food', 'ყველაფერს')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors"
+                        :class="form.food === 'ყველაფერს' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
+                    >
+                        ყველაფერს
+                    </button>
+                    <button
+                        @click="selectOption('food', 'ხორცი არა')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors"
+                        :class="form.food === 'ხორცი არა' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
+                    >
+                        ხორცი არა
+                    </button>
+                    <button
+                        @click="selectOption('food', 'ვეგეტარიანული ვარ')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors"
+                        :class="form.food === 'ვეგეტარიანული ვარ' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
+                    >
+                        ვეგეტარიანული ვარ
+                    </button>
+                    <button
+                        @click="selectOption('food', 'მხოლოდ პურ')"
+                        class="w-full py-3 rounded-full font-medium text-center transition-colors"
+                        :class="form.food === 'მხოლოდ პურ' ? 'bg-red-400 text-white' : 'bg-gray-200 text-gray-800'"
+                    >
+                        მხოლოდ პურ
+                    </button>
+                </div>
+
+                <div class="flex justify-between">
+                    <button
+                        @click="prevStep"
+                        class="px-8 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors"
+                    >
+                        დაბრუნება
+                    </button>
+                    <button
+                        @click="submitForm"
+                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors"
+                        :disabled="!form.food"
+                    >
+                        შემდეგი
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Confirmation -->
+        <div
+            class="absolute w-full bg-white rounded-lg shadow-lg transition-all duration-500 p-6"
+            :style="{ transform: `translateX(${currentStep === 3 ? '0' : '100%'})`, opacity: currentStep === 3 ? '1' : '0' }"
+        >
+            <div class="flex flex-col items-center text-center">
+                <h1 class="text-2xl font-bold mb-4">რეგისტრაცია!</h1>
+
+                <img src="/mascot-head.png" alt="Mascot Head" class="w-48 h-auto mb-4" />
+
+                <p class="mb-8 text-lg">შემდეგ დღეს აიღე Dayoff-ი!</p>
+
+                <button
+                    @click="resetForm"
+                    class="w-full py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors"
+                >
+                    მთავარი გვერდზება
+                </button>
+            </div>
+        </div>
     </div>
-
-    <form @submit.prevent="submitRsvp" class="space-y-4">
-        <div>
-            <label class="block mb-2 text-sm font-medium">Are you coming?</label>
-            <select v-model="form.coming" class="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-700">
-                <option value="">Select an option</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-                <option value="Maybe">Maybe</option>
-            </select>
-        </div>
-
-        <div>
-            <label class="block mb-2 text-sm font-medium">Food Preference</label>
-            <input type="text" v-model="form.food" class="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-700" placeholder="E.g., Vegetarian, Vegan, etc.">
-        </div>
-
-        <div>
-            <label class="block mb-2 text-sm font-medium">Drink Preference</label>
-            <input type="text" v-model="form.drink" class="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-700" placeholder="E.g., Wine, Beer, etc.">
-        </div>
-
-        <div>
-            <label class="block mb-2 text-sm font-medium">Music Preference</label>
-            <input type="text" v-model="form.music" class="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-700" placeholder="E.g., Rock, Jazz, etc.">
-        </div>
-
-        <div>
-            <label class="block mb-2 text-sm font-medium">Extra Information</label>
-            <textarea v-model="form.extra" class="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-700" rows="3" placeholder="Any additional information..."></textarea>
-        </div>
-
-        <button type="submit" class="w-full px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700" :disabled="isSubmitting">
-            {{ isSubmitting ? 'Submitting...' : 'Submit RSVP' }}
-        </button>
-    </form>
 </div>
 </template>
 
@@ -48,6 +165,7 @@
 export default {
     data() {
         return {
+            currentStep: 0,
             form: {
                 coming: '',
                 food: '',
@@ -55,51 +173,36 @@ export default {
                 music: '',
                 extra: ''
             },
-            isSubmitting: false,
-            success: false,
-            message: ''
+            isSubmitting: false
         }
     },
     methods: {
-        async submitRsvp() {
-            if (!this.form.coming) {
-                this.success = false
-                this.message = 'Please indicate if you are coming'
-                return
+        nextStep() {
+            if (this.currentStep < 3) {
+                this.currentStep++
             }
-
-            this.isSubmitting = true
-            this.message = ''
-
+        },
+        prevStep() {
+            if (this.currentStep > 0) {
+                this.currentStep--
+            }
+        },
+        selectOption(field, value) {
+            this.form[field] = value
+        },
+        async submitForm() {
             try {
-                const response = await fetch('/api/submit-rsvp', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(this.form)
-                })
+                // Store the selected options in localStorage instead of sending to server
+                localStorage.setItem('rsvp-data', JSON.stringify(this.form))
 
-                const result = await response.json()
-
-                if (result.success) {
-                    this.success = true
-                    this.message = 'RSVP submitted successfully!'
-                    this.resetForm()
-                    this.$emit('rsvp-submitted')
-                } else {
-                    this.success = false
-                    this.message = result.error || 'Failed to submit RSVP'
-                }
+                // For now, just move to the confirmation step
+                this.nextStep()
             } catch (error) {
                 console.error('Error:', error)
-                this.success = false
-                this.message = 'An error occurred while submitting'
-            } finally {
-                this.isSubmitting = false
             }
         },
         resetForm() {
+            this.currentStep = 0
             this.form = {
                 coming: '',
                 food: '',
