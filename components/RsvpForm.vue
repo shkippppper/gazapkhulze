@@ -399,12 +399,12 @@
 
         <div
             class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
-            :style="{ transform: `translateX(${currentStep === 0 ? '0' : '-100%'})`, opacity: currentStep === 0 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 9 ? '0' : currentStep < 9 ? '100%' : '-100%'})`, opacity: currentStep === 9 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-2xl font-bold mb-4 text-black">რას ნიშნავს არ მოდიხარ?!</h1>
 
-                <img src="/mascot-angry.png" alt="Mascot" class="w-64 h-auto mb-8" />
+                <img src="/mascot-angry.png" alt="Mascot" class="w-56 h-auto mb-8" />
 
                 <button
                     @click="goBackToForm"
