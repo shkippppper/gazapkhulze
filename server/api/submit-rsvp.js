@@ -5,10 +5,27 @@ const sql = postgres(process.env.POSTGRES_URL || '', { ssl: 'require' })
 // Make sure to create the table if it doesn't exist
 async function ensureTableExists() {
     try {
+        // Check if we need to update the table structure
+        const checkColumns = await sql`
+      SELECT column_name 
+      FROM information_schema.columns 
+      WHERE table_name = 'rsvps' 
+      AND column_name IN ('name', 'surname');
+    `;
+
+        console.log('Existing columns check:', checkColumns);
+
+        // If the table exists but doesn't have name and surname columns, drop it
+        if (checkColumns.length < 2) {
+            console.log('Table exists but missing name/surname columns. Dropping and recreating...');
+            await sql`DROP TABLE IF EXISTS rsvps;`;
+        }
+
+        // Create the table with the correct structure
         await sql`
       CREATE TABLE IF NOT EXISTS rsvps (
         id SERIAL PRIMARY KEY,
-        firstName VARCHAR(255),
+        name VARCHAR(255),
         surname VARCHAR(255),
         coming VARCHAR(50) NOT NULL,
         food VARCHAR(255),
@@ -17,12 +34,13 @@ async function ensureTableExists() {
         extra TEXT,
         "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
       );
-    `
-        console.log('Ensured rsvps table exists')
-        return true
+    `;
+
+        console.log('Table created/updated successfully');
+        return true;
     } catch (error) {
-        console.error('Error creating table:', error)
-        return false
+        console.error('Error ensuring table exists:', error);
+        return false;
     }
 }
 
