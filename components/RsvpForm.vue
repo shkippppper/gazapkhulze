@@ -477,13 +477,13 @@ export default {
 
                 // Prepare the data to send to the server
                 const dataToSend = {
+                    name: this.form.name || '',  // Using empty string as fallback
+                    surname: this.form.surname || '',  // Using empty string as fallback
                     coming: this.form.coming,
                     food: this.form.food,
                     drink: this.form.drink || '', // Using empty string as fallback
                     music: this.form.music || '', // Using empty string as fallback
-                    extra: this.form.extra || '',  // Using empty string as fallback
-                    name: this.form.name || '',  // Using empty string as fallback
-                    surname: this.form.surname || ''  // Using empty string as fallback
+                    extra: this.form.extra || ''  // Using empty string as fallback
                 };
 
                 // Send the data to the server
