@@ -477,14 +477,16 @@ export default {
 
                 // Prepare the data to send to the server
                 const dataToSend = {
-                    firstName: this.form.firstName || '',  // Using empty string as fallback
-                    surname: this.form.surname || '',  // Using empty string as fallback
+                    name: this.form.name || '',
+                    surname: this.form.surname || '',
                     coming: this.form.coming,
                     food: this.form.food,
-                    drink: this.form.drink || '', // Using empty string as fallback
-                    music: this.form.music || '', // Using empty string as fallback
-                    extra: this.form.extra || ''  // Using empty string as fallback
+                    drink: this.form.drink || '',
+                    music: this.form.music || '',
+                    extra: this.form.extra || ''
                 };
+
+                console.log('Sending data to server:', JSON.stringify(dataToSend, null, 2));
 
                 // Send the data to the server
                 const response = await fetch('/api/submit-rsvp', {
@@ -496,18 +498,20 @@ export default {
                 });
 
                 const result = await response.json();
+                console.log('Server response:', JSON.stringify(result, null, 2));
 
                 if (result.success) {
-                    // Just move to the confirmation step on success
+                    console.log('RSVP submitted successfully with ID:', result.id);
                     this.nextStep();
                 } else {
-                    console.error('Error submitting RSVP:', result.error);
+                    console.error('Error from server:', result.error);
                     // Still move to confirmation page even if there's an error
-                    // You could add error handling here if needed
                     this.nextStep();
                 }
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Exception during submission:', error);
+                console.error('Error message:', error.message);
+                console.error('Error stack:', error.stack);
                 // Still move to confirmation page even if there's an error
                 this.nextStep();
             } finally {
