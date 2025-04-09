@@ -24,10 +24,50 @@
             </div>
         </div>
 
-        <!-- Step 2: Coming or not -->
         <div
             class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
             :style="{ transform: `translateX(${currentStep === 1 ? '0' : currentStep < 1 ? '100%' : '-100%'})`, opacity: currentStep === 1 ? '1' : '0' }"
+        >
+            <div class="flex flex-col">
+                <h2 class="text-xl font-bold mb-6 text-black">1. მოდიხართ თუ არა?</h2>
+
+                <div class="w-full mb-4">
+                    <input
+                        v-model="form.name"
+                        type="text"
+                        placeholder="სახელი"
+                        class="w-full p-3 mb-3 border border-gray-300 rounded-full text-black bg-[#f8f8f8]"
+                    />
+                    <input
+                        v-model="form.surname"
+                        type="text"
+                        placeholder="გვარი"
+                        class="w-full p-3 border border-gray-300 rounded-full text-black bg-[#f8f8f8]"
+                    />
+                </div>
+
+                <div class="flex justify-between">
+                    <button
+                        @click="prevStep"
+                        class="px-8 py-3 bg-gray-200 text-black rounded-full font-medium hover:bg-gray-300 transition-colors border "
+                    >
+                        დაბრუნება
+                    </button>
+                    <button
+                        @click="nextStep"
+                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
+                        :disabled="!form.surname || !form.name"
+                    >
+                        შემდეგი
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Coming or not -->
+        <div
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            :style="{ transform: `translateX(${currentStep === 2 ? '0' : currentStep < 2 ? '100%' : '-100%'})`, opacity: currentStep === 2 ? '1' : '0' }"
         >
             <div class="flex flex-col">
                 <h2 class="text-xl font-bold mb-6 text-black">1. მოდიხართ თუ არა?</h2>
@@ -46,13 +86,6 @@
                         :class="form.coming === 'არა' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         არა
-                    </button>
-                    <button
-                        @click="selectOption('coming', 'კი, +1')"
-                        class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.coming === 'კი, +1' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
-                    >
-                        კი, +1
                     </button>
                     <button
                         @click="selectOption('coming', 'კი, +მეტი')"
@@ -84,7 +117,7 @@
         <!-- Step 2: Food preference -->
         <div
             class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
-            :style="{ transform: `translateX(${currentStep === 2 ? '0' : currentStep < 2 ? '100%' : '-100%'})`, opacity: currentStep === 2 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 3 ? '0' : currentStep < 3 ? '100%' : '-100%'})`, opacity: currentStep === 3 ? '1' : '0' }"
         >
             <div class="flex flex-col">
                 <h2 class="text-xl font-bold mb-6 text-black">2. რას ჭამ?</h2>
@@ -141,7 +174,7 @@
         <!-- Step 3: Drink Preference -->
         <div
             class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
-            :style="{ transform: `translateX(${currentStep === 3 ? '0' : currentStep < 3 ? '100%' : '-100%'})`, opacity: currentStep === 3 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 4 ? '0' : currentStep < 4 ? '100%' : '-100%'})`, opacity: currentStep === 4 ? '1' : '0' }"
         >
             <div class="flex flex-col">
                 <h2 class="text-xl font-bold mb-6 text-black">3. რას დალევ?</h2>
@@ -176,13 +209,6 @@
                         არ ვსვავ
                     </button>
                     <button
-                        @click="selectOption('drink', 'სხვა')"
-                        class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.drink === 'სხვა' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
-                    >
-                        სხვა
-                    </button>
-                    <button
                         @click="selectOption('drink', 'ჩემით მოვიტან')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
                         :class="form.drink === 'ჩემით მოვიტან' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
@@ -212,7 +238,7 @@
         <!-- Step 4: Music Preference -->
         <div
             class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
-            :style="{ transform: `translateX(${currentStep === 4 ? '0' : currentStep < 4 ? '100%' : '-100%'})`, opacity: currentStep === 4 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 5 ? '0' : currentStep < 5 ? '100%' : '-100%'})`, opacity: currentStep === 5 ? '1' : '0' }"
         >
             <div class="flex flex-col">
                 <h2 class="text-xl font-bold mb-6 text-black">4. მუსიკა?</h2>
@@ -240,11 +266,11 @@
                         ჰაუსი
                     </button>
                     <button
-                        @click="selectOption('music', 'კლასიკა')"
+                        @click="selectOption('music', 'დისკო')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.music === 'კლასიკა' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.music === 'დისკო' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
                     >
-                        კლასიკა
+                        დისკო
                     </button>
                     <button
                         @click="selectOption('music', 'რეპი')"
@@ -283,7 +309,7 @@
         <!-- Step 5: Extra Comments -->
         <div
             class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
-            :style="{ transform: `translateX(${currentStep === 5 ? '0' : currentStep < 5 ? '100%' : '-100%'})`, opacity: currentStep === 5 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 6 ? '0' : currentStep < 6 ? '100%' : '-100%'})`, opacity: currentStep === 6 ? '1' : '0' }"
         >
             <div class="flex flex-col">
                 <h2 class="text-xl font-bold mb-6 text-black">5. შეკვეთა დიჯეისთან მთვრალზე</h2>
@@ -318,7 +344,7 @@
         <!-- Step 6: Confirmation -->
         <div
             class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
-            :style="{ transform: `translateX(${currentStep === 6 ? '0' : currentStep < 6 ? '100%' : '-100%'})`, opacity: currentStep === 6 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 7 ? '0' : currentStep < 7 ? '100%' : '-100%'})`, opacity: currentStep === 7 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-2xl font-bold mb-4 text-black">რეკომენდაცია!</h1>
@@ -339,7 +365,7 @@
         <!-- Last step: Finish -->
         <div
             class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
-            :style="{ transform: `translateX(${currentStep === 7 ? '0' : currentStep < 7 ? '100%' : '-100%'})`, opacity: currentStep === 7 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 8 ? '0' : currentStep < 8 ? '100%' : '-100%'})`, opacity: currentStep === 8 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-2xl font-bold mb-4 text-black">გელოდები</h1>
@@ -393,7 +419,11 @@ export default {
     },
     methods: {
         nextStep() {
-            if (this.currentStep < 9) {
+            // if (this.form.coming === "არა") {
+            //     this.currentStep = 9
+            // }
+
+            if (this.currentStep < 10) {
                 this.currentStep++
             }
             if (this.currentStep === 7) {
