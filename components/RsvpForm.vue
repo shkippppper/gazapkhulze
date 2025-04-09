@@ -129,7 +129,7 @@
                     <button
                         @click="nextStep"
                         class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border border-red-500"
-                        :disabled="!form.coming"
+                        :disabled="!form.food"
                     >
                         შემდეგი
                     </button>
@@ -369,7 +369,7 @@ export default {
     },
     methods: {
         nextStep() {
-            if (this.currentStep < 5) {
+            if (this.currentStep < 8) {
                 this.currentStep++
             }
         },
