@@ -8,6 +8,8 @@ async function ensureTableExists() {
         await sql`
       CREATE TABLE IF NOT EXISTS rsvps (
         id SERIAL PRIMARY KEY,
+        name VARCHAR(255),
+        surname VARCHAR(255),
         coming VARCHAR(50) NOT NULL,
         food VARCHAR(255),
         drink VARCHAR(255),
