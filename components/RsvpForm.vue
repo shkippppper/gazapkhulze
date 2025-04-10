@@ -475,7 +475,7 @@ export default {
         selectOption(field, value) {
             this.form[field] = value
         },
-        async submitForm(skipNextStep) {
+        async submitForm(skipNextStep = false) {
             try {
                 this.isSubmitting = true;
 
