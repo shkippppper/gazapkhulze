@@ -443,7 +443,7 @@ export default {
         nextStep() {
             if (this.form.coming === "არა") {
                 this.currentStep = 9
-                // this.submitForm()
+                this.submitForm()
                 return
             }
 
