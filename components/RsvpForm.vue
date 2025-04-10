@@ -381,14 +381,14 @@
                     src="/mascot-animation.gif"
                     alt="Animation"
                     class="absolute h-auto"
-                    style="width: 495px; top: 123px; right: -19%; z-index: 3;"
+                    style="width: 495px; top: 123px; right: -19%; z-index: 3; transform: rotate(17deg);"
                     ref="gif"
                 />
 
                 <!-- Static image that replaces the GIF - with absolute positioning -->
                 <img
                     v-show="gifLoaded && showStamp"
-                    src="/mascot_black.png"
+                    src="/mascot-red.png"
                     alt="Mascot"
                     class="absolute h-auto"
                     style="width: 120px; top: 240px; right: 17%; z-index: 2;"
@@ -423,7 +423,7 @@
 export default {
     data() {
         return {
-            currentStep: 7,
+            currentStep: 0,
             gifLoaded: false,
             gifFinished: true,
             form: {
@@ -458,12 +458,12 @@ export default {
 
                     setTimeout(() => {
                         this.showStamp = true;
-                    }, 500);
+                    }, 400);
 
                     setTimeout(() => {
                         this.gifFinished = true;
                     }, 800);
-                }, 1000);
+                }, 500);
             }
         },
         prevStep() {
