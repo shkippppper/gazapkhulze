@@ -377,7 +377,7 @@
                 <!-- GIF that plays once then gets replaced -->
 
                 <img
-                    v-if="!gifFinished"
+                    v-show="!gifFinished"
                     src="/mascot-animation.gif"
                     alt="Animation"
                     class="absolute h-auto"
@@ -387,7 +387,7 @@
 
                 <!-- Static image that replaces the GIF - with absolute positioning -->
                 <img
-                    v-else-if="gifLoaded && gifFinished"
+                    v-show="gifLoaded && gifFinished"
                     src="/mascot_black.png"
                     alt="Mascot"
                     class="absolute h-auto"
