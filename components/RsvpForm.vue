@@ -381,7 +381,7 @@
                     src="/mascot-animation.gif"
                     alt="Animation"
                     class="absolute h-auto"
-                    style="width: 480px; top: 123px; right: -19%;"
+                    style="width: 495px; top: 123px; right: -19%; z-index: 3;"
                     ref="gif"
                 />
 
@@ -391,7 +391,7 @@
                     src="/mascot_black.png"
                     alt="Mascot"
                     class="absolute h-auto"
-                    style="width: 130px; top: 237px; right: 15%;"
+                    style="width: 120px; top: 240px; right: 17%; z-index: 2;"
                 />
             </div>
         </div>
