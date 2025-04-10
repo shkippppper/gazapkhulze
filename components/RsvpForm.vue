@@ -88,11 +88,11 @@
                         არა
                     </button>
                     <button
-                        @click="selectOption('coming', 'კი, +მეტი')"
+                        @click="selectOption('coming', 'კი, +1')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.coming === 'კი, +მეტი' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.coming === 'კი, +1' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
                     >
-                        კი, +მეტი
+                        კი, +1
                     </button>
                 </div>
 
@@ -380,8 +380,7 @@
                     v-show="!gifFinished"
                     src="/mascot-animation.gif"
                     alt="Animation"
-                    class="absolute h-auto"
-                    style="width: 495px; top: 123px; right: -85px; z-index: 3;"
+                    class="absolute h-auto stamp"
                     ref="gif"
                 />
 
@@ -390,8 +389,7 @@
                     v-show="gifLoaded && showStamp"
                     src="/mascot-red.png"
                     alt="Mascot"
-                    class="absolute h-auto"
-                    style="width: 120px; top: 240px; right: 80px; z-index: 2; transform: rotate(17deg);"
+                    class="absolute h-auto mascot-red"
                 />
             </div>
         </div>
@@ -441,9 +439,9 @@ export default {
     },
     methods: {
         nextStep() {
-            if (this.form.coming === "არა") {
+            if (this.form.coming === "არა" && this.currentStep === 2) {
                 this.currentStep = 9
-                this.submitForm()
+                this.submitForm(true)
                 return
             }
 
@@ -477,7 +475,7 @@ export default {
         selectOption(field, value) {
             this.form[field] = value
         },
-        async submitForm() {
+        async submitForm(skipNextStep) {
             try {
                 this.isSubmitting = true;
 
@@ -508,18 +506,18 @@ export default {
 
                 if (result.success) {
                     console.log('RSVP submitted successfully with ID:', result.id);
-                    this.nextStep();
+                    if (!skipNextStep) this.nextStep();
                 } else {
                     console.error('Error from server:', result.error);
                     // Still move to confirmation page even if there's an error
-                    this.nextStep();
+                    if (!skipNextStep) this.nextStep();
                 }
             } catch (error) {
                 console.error('Exception during submission:', error);
                 console.error('Error message:', error.message);
                 console.error('Error stack:', error.stack);
                 // Still move to confirmation page even if there's an error
-                this.nextStep();
+                if (!skipNextStep) this.nextStep();
             } finally {
                 this.isSubmitting = false;
             }
@@ -527,3 +525,36 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.mascot-red {
+    width: 120px;
+    top: 240px;
+    right: 80px;
+    z-index: 2;
+    transform: rotate(17deg);
+}
+
+.stamp {
+    width: 495px;
+    top: 123px;
+    right: -85px;
+    z-index: 3;
+}
+
+@media (max-width: 435px) {
+    .mascot-red {
+        width: 112px;
+        top: 226px;
+        right: 59px;
+    }
+}
+
+@media (max-width: 395px) {
+    .stamp {
+        top: 140px;
+        right: -63px;
+    }
+}
+
+</style>
