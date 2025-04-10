@@ -458,7 +458,7 @@ export default {
 
                     setTimeout(() => {
                         this.showStamp = true;
-                    }, 600);
+                    }, 500);
 
                     setTimeout(() => {
                         this.gifFinished = true;
