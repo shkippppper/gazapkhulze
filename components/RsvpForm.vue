@@ -456,11 +456,11 @@ export default {
                 setTimeout(() => {
                     this.gifFinished = false;
                     this.gifLoaded = true
-                }, 2000);
 
-                setTimeout(() => {
-                    this.gifFinished = true;
-                }, 840);
+                    setTimeout(() => {
+                        this.gifFinished = true;
+                    }, 840);
+                }, 2000);
             }
         },
         prevStep() {
