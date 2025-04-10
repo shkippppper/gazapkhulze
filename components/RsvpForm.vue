@@ -449,7 +449,7 @@ export default {
             if (this.currentStep < 10) {
                 this.currentStep++
             }
-            if (this.currentStep === 7) {
+            if (this.currentStep === 8) {
 
                 setTimeout(() => {
                     this.gifFinished = false;
@@ -458,7 +458,7 @@ export default {
                     setTimeout(() => {
                         this.gifFinished = true;
                     }, 840);
-                }, 2000);
+                }, 1000);
             }
         },
         prevStep() {
