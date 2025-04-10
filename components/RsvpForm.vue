@@ -441,6 +441,7 @@ export default {
         nextStep() {
             if (this.form.coming === "არა") {
                 this.currentStep = 9
+                this.submitForm()
                 return
             }
 
