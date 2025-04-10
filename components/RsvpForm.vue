@@ -375,15 +375,13 @@
                 <img src="/mascot-smile.png" alt="Mascot" class="w-32 h-auto mb-8" />
 
                 <!-- GIF that plays once then gets replaced -->
-                <p>{{gifFinished}}</p>
-                <p>{{gifLoaded}}</p>
 
                 <img
                     v-if="!gifFinished"
                     src="/mascot-animation.gif"
                     alt="Animation"
                     class="absolute h-auto"
-                    style="width: 160px; top: 200px; right: 10%;"
+                    style="width: 300px; top: 200px; right: 12%;"
                     ref="gif"
                 />
 
@@ -460,7 +458,7 @@ export default {
                     setTimeout(() => {
                         this.gifFinished = true;
                     }, 840);
-                }, 2000);
+                }, 1000);
             }
         },
         prevStep() {
