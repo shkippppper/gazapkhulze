@@ -424,7 +424,7 @@ export default {
         return {
             currentStep: 0,
             gifLoaded: false,
-            gifFinished: false,
+            gifFinished: true,
             form: {
                 name: '',
                 surname: '',
@@ -450,16 +450,14 @@ export default {
             }
             if (this.currentStep === 7) {
 
-                this.gifFinished = true
-
                 setTimeout(() => {
                     this.gifFinished = false;
                     this.gifLoaded = true
-                }, 1000);
+                }, 2000);
 
                 setTimeout(() => {
                     this.gifFinished = true;
-                }, 3000);
+                }, 840);
             }
         },
         prevStep() {
