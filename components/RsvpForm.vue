@@ -375,6 +375,9 @@
                 <img src="/mascot-smile.png" alt="Mascot" class="w-32 h-auto mb-8" />
 
                 <!-- GIF that plays once then gets replaced -->
+                <p>{{gifFinished}}</p>
+                <p>{{gifLoaded}}</p>
+
                 <img
                     v-if="!gifFinished"
                     src="/mascot-animation.gif"
