@@ -381,7 +381,7 @@
                     src="/mascot-animation.gif"
                     alt="Animation"
                     class="absolute h-auto"
-                    style="width: 400px; top: 200px; right: 8%;"
+                    style="width: 400px; top: 150px; right: 4%;"
                     ref="gif"
                 />
 
@@ -423,7 +423,7 @@
 export default {
     data() {
         return {
-            currentStep: 0,
+            currentStep: 7,
             gifLoaded: false,
             gifFinished: true,
             form: {
@@ -457,7 +457,7 @@ export default {
 
                     setTimeout(() => {
                         this.gifFinished = true;
-                    }, 840);
+                    }, 800);
                 }, 1000);
             }
         },
