@@ -331,7 +331,7 @@
                         დაბრუნება
                     </button>
                     <button
-                        @click="submitForm"
+                        @click="submitForm(false)"
                         class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
                         :disabled="isSubmitting"
                     >
