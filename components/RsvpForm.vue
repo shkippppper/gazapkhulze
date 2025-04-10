@@ -9,7 +9,7 @@
         >
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-2xl font-bold mb-4 text-black">გეპატიჟები</h1>
-                <p class="text-2xl font-bold mb-4 text-black">გაზაფხულზე გაზაფხულზე</p>
+                <p class="text-xl font-bold mb-4 text-black">გაზაფხულზე გაზაფხულზე</p>
                 <p class="mb-2 text-black">15 აპრილი, 20:00 საათი</p>
                 <p class="mb-6 text-black">გაზაფხულის ქუჩა №30</p>
 
@@ -381,7 +381,7 @@
                     src="/mascot-animation.gif"
                     alt="Animation"
                     class="absolute h-auto"
-                    style="width: 495px; top: 123px; right: -19%; z-index: 3; transform: rotate(17deg);"
+                    style="width: 495px; top: 123px; right: -85px; z-index: 3;"
                     ref="gif"
                 />
 
@@ -391,7 +391,7 @@
                     src="/mascot-red.png"
                     alt="Mascot"
                     class="absolute h-auto"
-                    style="width: 120px; top: 240px; right: 17%; z-index: 2;"
+                    style="width: 120px; top: 240px; right: 80px; z-index: 2; transform: rotate(17deg);"
                 />
             </div>
         </div>
@@ -458,12 +458,12 @@ export default {
 
                     setTimeout(() => {
                         this.showStamp = true;
-                    }, 400);
+                    }, 450);
 
                     setTimeout(() => {
                         this.gifFinished = true;
                     }, 800);
-                }, 500);
+                }, 700);
             }
         },
         prevStep() {
