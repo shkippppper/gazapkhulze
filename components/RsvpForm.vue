@@ -383,17 +383,17 @@
                     src="/mascot-animation.gif"
                     alt="Animation"
                     class="absolute h-auto"
-                    style="width: 120px; top: 180px; right: 20%;"
+                    style="width: 160px; top: 200px; right: 10%;"
                     ref="gif"
                 />
 
                 <!-- Static image that replaces the GIF - with absolute positioning -->
                 <img
                     v-else-if="gifLoaded && gifFinished"
-                    src="/mascot.png"
+                    src="/mascot_black.png"
                     alt="Mascot"
                     class="absolute h-auto"
-                    style="width: 120px; top: 180px; right: 20%;"
+                    style="width: 150px; top: 200px; right: 10%;"
                 />
             </div>
         </div>
@@ -521,16 +521,6 @@ export default {
                 this.isSubmitting = false;
             }
         },
-        resetForm() {
-            this.currentStep = 0
-            this.form = {
-                coming: '',
-                food: '',
-                drink: '',
-                music: '',
-                extra: ''
-            }
-        }
     }
 }
 </script>
