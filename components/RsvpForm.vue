@@ -387,7 +387,7 @@
 
                 <!-- Static image that replaces the GIF - with absolute positioning -->
                 <img
-                    v-show="gifLoaded && gifFinished"
+                    v-show="gifLoaded && showStamp"
                     src="/mascot_black.png"
                     alt="Mascot"
                     class="absolute h-auto"
@@ -435,7 +435,8 @@ export default {
                 music: '',
                 extra: ''
             },
-            isSubmitting: false
+            isSubmitting: false,
+            showStamp: false
         }
     },
     methods: {
@@ -454,6 +455,10 @@ export default {
                 setTimeout(() => {
                     this.gifFinished = false;
                     this.gifLoaded = true
+
+                    setTimeout(() => {
+                        this.showStamp = true;
+                    }, 600);
 
                     setTimeout(() => {
                         this.gifFinished = true;
