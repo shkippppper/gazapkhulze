@@ -404,7 +404,7 @@
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-2xl font-bold mb-4 text-black">რას ნიშნავს არ მოდიხარ?!</h1>
 
-                <img src="/mascot-angry.png" alt="Mascot" class="w-56 h-auto mb-8" />
+                <img src="/mascot-angry.png" alt="Mascot" class="w-48 h-auto mb-8" />
 
                 <button
                     @click="goBackToForm"
@@ -441,6 +441,7 @@ export default {
         nextStep() {
             if (this.form.coming === "არა") {
                 this.currentStep = 9
+                return
             }
 
             if (this.currentStep < 10) {
