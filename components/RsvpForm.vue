@@ -458,7 +458,7 @@ export default {
     methods: {
         updateTimer() {
             const now = new Date();
-            const targetDate = new Date('2025-10-02T12:08:00');
+            const targetDate = new Date('2025-10-08T05:00:00');
             
             const difference = targetDate - now;
             
