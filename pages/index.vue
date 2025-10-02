@@ -5,5 +5,4 @@
 </template>
 
 <script setup>
-// Simple page that just includes the RSVP form
 </script>

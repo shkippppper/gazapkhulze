@@ -1,5 +1,11 @@
 <template>
 <div class="w-full max-w-md mx-auto">
+    <div v-if="showTimer" class="mb-4 text-center">
+        <div class="bg-red-400 text-white rounded-full py-2 px-4 inline-block shadow-lg">
+            <p class="text-sm font-medium mb-1">დრო რჩება:</p>
+            <p class="text-lg font-bold">{{ timeRemaining }}</p>
+        </div>
+    </div>
     <div class="relative overflow-hidden" style="height: 550px;">
         <!-- Step 1: Invitation -->
 
@@ -434,10 +440,43 @@ export default {
                 extra: ''
             },
             isSubmitting: false,
-            showStamp: false
+            showStamp: false,
+            timeRemaining: '',
+            showTimer: true,
+            timerInterval: null
+        }
+    },
+    mounted() {
+        this.updateTimer();
+        this.timerInterval = setInterval(this.updateTimer, 1000);
+    },
+    beforeUnmount() {
+        if (this.timerInterval) {
+            clearInterval(this.timerInterval);
         }
     },
     methods: {
+        updateTimer() {
+            const now = new Date();
+            const targetDate = new Date('2025-10-02T12:05:00');
+            
+            const difference = targetDate - now;
+            
+            if (difference <= 0) {
+                this.showTimer = false;
+                if (this.timerInterval) {
+                    clearInterval(this.timerInterval);
+                }
+                return;
+            }
+            
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            this.timeRemaining = `${days} დღე ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        },
         nextStep() {
             if (this.form.coming === "არა" && this.currentStep === 2) {
                 this.currentStep = 9
