@@ -2,7 +2,7 @@
 <div class="w-full max-w-md mx-auto">
     <div v-if="showTimer" class="mb-4 text-center">
         <div class="bg-red-400 text-white rounded-full py-2 px-4 inline-block shadow-lg">
-            <p class="text-sm font-medium mb-1">დრო რჩება:</p>
+            <p class="text-sm font-medium mb-1">ბალის ჩამოსვლამდე:</p>
             <p class="text-lg font-bold">{{ timeRemaining }}</p>
         </div>
     </div>
@@ -442,7 +442,7 @@ export default {
             isSubmitting: false,
             showStamp: false,
             timeRemaining: '',
-            showTimer: true,
+            showTimer: false,
             timerInterval: null
         }
     },
@@ -458,7 +458,7 @@ export default {
     methods: {
         updateTimer() {
             const now = new Date();
-            const targetDate = new Date('2025-10-02T12:05:00');
+            const targetDate = new Date('2025-10-02T12:08:00');
             
             const difference = targetDate - now;
             
@@ -468,6 +468,8 @@ export default {
                     clearInterval(this.timerInterval);
                 }
                 return;
+            } else {
+                this.showTimer = true
             }
             
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
