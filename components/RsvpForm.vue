@@ -589,44 +589,60 @@ export default {
   overflow: hidden;
 }
 
-.snow {
+/* Base snow layer */
+.snow,
+.snow2,
+.snow3 {
   position: absolute;
-  inset: -200px 0 0 0;
-  background-image:
-      radial-gradient(4px 4px at 20px 30px, #6fe2ff 100%, transparent),
-      radial-gradient(3px 3px at 40px 70px, #6fe2ff 100%, transparent),
-      radial-gradient(2px 2px at 90px 40px, #6fe2ff 100%, transparent),
-      radial-gradient(3px 3px at 130px 80px, #6fe2ff 100%, transparent),
-      radial-gradient(2px 2px at 160px 120px, #6fe2ff 100%, transparent),
-      radial-gradient(3px 3px at 200px 50px, #6fe2ff 100%, transparent),
-      radial-gradient(2px 2px at 240px 100px, #6fe2ff 100%, transparent),
-      radial-gradient(4px 4px at 280px 150px, #6fe2ff 100%, transparent);
+  inset: 0;
+  background-repeat: repeat;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
 
+/* ❄️ Front layer — fast, dense */
+.snow {
+  background-image:
+      radial-gradient(4px 4px at 20px 30px, white 100%, transparent),
+      radial-gradient(3px 3px at 60px 90px, white 100%, transparent),
+      radial-gradient(2px 2px at 120px 60px, white 100%, transparent),
+      radial-gradient(3px 3px at 180px 140px, white 100%, transparent),
+      radial-gradient(2px 2px at 240px 100px, white 100%, transparent);
   background-size: 200px 200px;
-  animation: snow-fall 12s linear infinite;
+  animation: snow-flow 12s linear infinite;
   opacity: 0.8;
 }
 
+/* ❄️ Middle layer */
 .snow2 {
-  animation-duration: 18s;
-  background-size: 300px 300px;
-  opacity: 0.6;
+  background-image:
+      radial-gradient(3px 3px at 40px 40px, white 100%, transparent),
+      radial-gradient(2px 2px at 100px 120px, white 100%, transparent),
+      radial-gradient(3px 3px at 160px 80px, white 100%, transparent);
+  background-size: 280px 280px;
+  animation: snow-flow 20s linear infinite;
+  opacity: 0.5;
 }
 
+/* ❄️ Back layer — slow, soft */
 .snow3 {
-  animation-duration: 25s;
-  background-size: 400px 400px;
-  opacity: 0.4;
+  background-image:
+      radial-gradient(2px 2px at 80px 60px, white 100%, transparent),
+      radial-gradient(2px 2px at 200px 160px, white 100%, transparent);
+  background-size: 360px 360px;
+  animation: snow-flow 30s linear infinite;
+  opacity: 0.3;
 }
 
-@keyframes snow-fall {
+@keyframes snow-flow {
   from {
-    transform: translate(0, 0);
+    background-position: 0 0;
   }
   to {
-    transform: translate(60px, 100vh);
+    background-position: 80px 100vh;
   }
 }
+
 
 .mascot-red {
     width: 120px;
