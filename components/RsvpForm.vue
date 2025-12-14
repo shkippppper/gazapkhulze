@@ -1,5 +1,12 @@
 <template>
-<div class="w-full max-w-md mx-auto">
+  <div class="snow-container">
+    <div class="snow"></div>
+    <div class="snow snow2"></div>
+    <div class="snow snow3"></div>
+  </div>
+
+  <div class="w-full max-w-md mx-auto relative z-10">
+
     <div v-if="showTimer" class="mb-4 text-center">
         <div class="bg-red-400 text-white rounded-full py-2 px-4 inline-block shadow-lg">
             <p class="text-sm font-medium mb-1">ბალის ჩამოსვლამდე:</p>
@@ -573,6 +580,50 @@ export default {
 </script>
 
 <style scoped>
+/* ❄️ Snow background */
+.snow-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.snow {
+  position: absolute;
+  inset: -200px 0 0 0;
+  background-image:
+      radial-gradient(4px 4px at 20px 30px, #6fe2ff 100%, transparent),
+      radial-gradient(3px 3px at 40px 70px, #6fe2ff 100%, transparent),
+      radial-gradient(2px 2px at 90px 40px, #6fe2ff 100%, transparent),
+      radial-gradient(3px 3px at 130px 80px, #6fe2ff 100%, transparent),
+      radial-gradient(2px 2px at 160px 120px, #6fe2ff 100%, transparent);
+  background-size: 200px 200px;
+  animation: snow-fall 12s linear infinite;
+  opacity: 0.8;
+}
+
+.snow2 {
+  animation-duration: 18s;
+  background-size: 300px 300px;
+  opacity: 0.6;
+}
+
+.snow3 {
+  animation-duration: 25s;
+  background-size: 400px 400px;
+  opacity: 0.4;
+}
+
+@keyframes snow-fall {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
 .mascot-red {
     width: 120px;
     top: 240px;
