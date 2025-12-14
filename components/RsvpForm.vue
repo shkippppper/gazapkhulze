@@ -14,7 +14,7 @@
         <!-- Step 1: Invitation -->
 
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
             :style="{ transform: `translateX(${currentStep === 0 ? '0' : '-100%'})`, opacity: currentStep === 0 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
@@ -36,7 +36,7 @@
         </div>
 
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black "
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
             :style="{ transform: `translateX(${currentStep === 1 ? '0' : currentStep < 1 ? '100%' : '-100%'})`, opacity: currentStep === 1 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -77,7 +77,7 @@
 
         <!-- Step 2: Coming or not -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black "
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
             :style="{ transform: `translateX(${currentStep === 2 ? '0' : currentStep < 2 ? '100%' : '-100%'})`, opacity: currentStep === 2 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -127,7 +127,7 @@
 
         <!-- Step 2: Food preference -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black "
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
             :style="{ transform: `translateX(${currentStep === 3 ? '0' : currentStep < 3 ? '100%' : '-100%'})`, opacity: currentStep === 3 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -184,7 +184,7 @@
 
         <!-- Step 3: Drink Preference -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black "
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
             :style="{ transform: `translateX(${currentStep === 4 ? '0' : currentStep < 4 ? '100%' : '-100%'})`, opacity: currentStep === 4 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -248,7 +248,7 @@
 
         <!-- Step 4: Music Preference -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black "
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
             :style="{ transform: `translateX(${currentStep === 5 ? '0' : currentStep < 5 ? '100%' : '-100%'})`, opacity: currentStep === 5 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -319,7 +319,7 @@
 
         <!-- Step 5: Extra Comments -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black "
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
             :style="{ transform: `translateX(${currentStep === 6 ? '0' : currentStep < 6 ? '100%' : '-100%'})`, opacity: currentStep === 6 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -354,7 +354,7 @@
 
         <!-- Step 6: Confirmation -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black "
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
             :style="{ transform: `translateX(${currentStep === 7 ? '0' : currentStep < 7 ? '100%' : '-100%'})`, opacity: currentStep === 7 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
@@ -375,7 +375,7 @@
 
         <!-- Last step: Finish -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black "
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
             :style="{ transform: `translateX(${currentStep === 8 ? '0' : currentStep < 8 ? '100%' : '-100%'})`, opacity: currentStep === 8 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
@@ -383,7 +383,8 @@
                 <p class="mb-2 text-black">1 იანვარი, 02:00 საათი</p>
                 <p class="mb-6 text-black">გაზაფხულის ქუჩა №30</p>
 
-                <img src="/mascot-smile.png" alt="Mascot" class="w-32 h-auto mb-8" />
+                <img v-if="isChristmas" src="/festive-mascot-smile.png" alt="Mascot" class="w-32 h-auto mb-8" />
+                <img v-else src="/mascot-smile.png" alt="Mascot" class="w-32 h-auto mb-8" />
 
                 <!-- GIF that plays once then gets replaced -->
 
@@ -408,13 +409,14 @@
         <!-- No Step -->
 
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black "
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
             :style="{ transform: `translateX(${currentStep === 9 ? '0' : currentStep < 9 ? '100%' : '-100%'})`, opacity: currentStep === 9 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-2xl font-bold mb-4 text-black">რას ნიშნავს არ მოდიხარ?!</h1>
 
-                <img src="/mascot-angry.png" alt="Mascot" class="w-48 h-auto mb-8" />
+                <img v-if="isChristmas" src="/festive-mascot-angry.png" alt="Mascot" class="w-48 h-auto mb-8" />
+                <img v-else src="/mascot-angry.png" alt="Mascot" class="w-48 h-auto mb-8" />
 
                 <button
                     @click="goBackToForm"
@@ -646,6 +648,10 @@ export default {
 </script>
 
 <style scoped>
+
+.background-transparency {
+    background-color: rgb(256, 256, 256, 0.6);
+}
 
 .snow-canvas-wrapper {
   position: fixed;
