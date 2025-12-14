@@ -15,15 +15,15 @@
         >
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-2xl font-bold mb-4 text-black">გეპატიჟები</h1>
-                <p class="text-xl font-bold mb-4 text-black">გაზაფხულზე გაზაფხულზე</p>
-                <p class="mb-2 text-black">15 აპრილი, 20:00 საათი</p>
+                <p class="text-xl font-bold mb-4 text-black">საახალწლო გაზაფხულზე</p>
+                <p class="mb-2 text-black">1 იანვარი, 02:00 საათი</p>
                 <p class="mb-6 text-black">გაზაფხულის ქუჩა №30</p>
 
                 <img src="/mascot.png" alt="Mascot" class="w-48 h-auto mb-8" />
 
                 <button
                     @click="nextStep"
-                    class="w-full py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
+                    class="w-full py-3 bg-red-400 text-white rounded-full font-medium hover:bg-cyan-500 transition-colors border "
                 >
                     შემდეგი გვერდი
                 </button>
@@ -375,7 +375,7 @@
         >
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-2xl font-bold mb-4 text-black">გელოდები</h1>
-                <p class="mb-2 text-black">15 აპრილი, 20:00 საათი</p>
+                <p class="mb-2 text-black">1 იანვარი, 02:00 საათი</p>
                 <p class="mb-6 text-black">გაზაფხულის ქუჩა №30</p>
 
                 <img src="/mascot-smile.png" alt="Mascot" class="w-32 h-auto mb-8" />
