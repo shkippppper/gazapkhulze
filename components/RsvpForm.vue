@@ -437,7 +437,7 @@ export default {
           snowHeight: 0,
           snowAnimationId: null,
           windStrength: 0.6, // 🌬 stronger = more drift
-          snowDensity: 120, // ❄️ increase / decrease snow amount
+          snowDensity: 220, // ❄️ increase / decrease snow amount
 
           currentStep: 0,
             gifLoaded: false,
