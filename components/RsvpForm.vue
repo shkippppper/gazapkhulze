@@ -313,39 +313,39 @@
         </div>
 
         <!-- Step 5: Extra Comments -->
-        <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
-            :style="{ transform: `translateX(${currentStep === 6 ? '0' : currentStep < 6 ? '100%' : '-100%'})`, opacity: currentStep === 6 ? '1' : '0' }"
-        >
-            <div class="flex flex-col">
-                <h2 class="text-xl font-bold mb-6 text-black">6. შეკვეთა დიჯეისთან მთვრალზე</h2>
+<!--        <div-->
+<!--            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"-->
+<!--            :style="{ transform: `translateX(${currentStep === 6 ? '0' : currentStep < 6 ? '100%' : '-100%'})`, opacity: currentStep === 6 ? '1' : '0' }"-->
+<!--        >-->
+<!--            <div class="flex flex-col">-->
+<!--                <h2 class="text-xl font-bold mb-6 text-black">6. შეკვეთა დიჯეისთან მთვრალზე</h2>-->
 
-                <div class="mb-8">
-            <textarea
-                v-model="form.extra"
-                class="w-full p-4 border  rounded-[20px] text-black bg-[#f8f8f8]"
-                rows="5"
-                placeholder="შეიყვანეთ მუსიკის ლინკი/სახელი"
-            ></textarea>
-                </div>
+<!--                <div class="mb-8">-->
+<!--            <textarea-->
+<!--                v-model="form.extra"-->
+<!--                class="w-full p-4 border  rounded-[20px] text-black bg-[#f8f8f8]"-->
+<!--                rows="5"-->
+<!--                placeholder="შეიყვანეთ მუსიკის ლინკი/სახელი"-->
+<!--            ></textarea>-->
+<!--                </div>-->
 
-                <div class="flex justify-between">
-                    <button
-                        @click="prevStep"
-                        class="px-8 py-3 bg-gray-200 text-black rounded-full font-medium hover:bg-gray-300 transition-colors border "
-                    >
-                        დაბრუნება
-                    </button>
-                    <button
-                        @click="submitForm(false)"
-                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
-                        :disabled="isSubmitting"
-                    >
-                        {{ isSubmitting ? 'შენახვა...' : 'შენახვა' }}
-                    </button>
-                </div>
-            </div>
-        </div>
+<!--                <div class="flex justify-between">-->
+<!--                    <button-->
+<!--                        @click="prevStep"-->
+<!--                        class="px-8 py-3 bg-gray-200 text-black rounded-full font-medium hover:bg-gray-300 transition-colors border "-->
+<!--                    >-->
+<!--                        დაბრუნება-->
+<!--                    </button>-->
+<!--                    <button-->
+<!--                        @click="submitForm(false)"-->
+<!--                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "-->
+<!--                        :disabled="isSubmitting"-->
+<!--                    >-->
+<!--                        {{ isSubmitting ? 'შენახვა...' : 'შენახვა' }}-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <!-- Step 6: Confirmation -->
         <div
