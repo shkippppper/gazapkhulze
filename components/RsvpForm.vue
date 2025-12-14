@@ -644,77 +644,66 @@ export default {
 </script>
 
 <style scoped>
+
+/* 🎄 CHRISTMAS LIGHTS */
 .christmas-card {
   position: relative;
   overflow: hidden;
 }
 
-/* 🎄 WIRE */
+/* TOP LIGHTS */
 .christmas-card::before {
   content: "";
   position: absolute;
-  inset: 8px;
-  border-radius: 18px;
-  border: 2px solid rgba(60, 45, 25, 0.7);
-  pointer-events: none;
+  top: 6px;
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+  box-shadow:
+      24px 0 gold,
+      48px 0 limegreen,
+      72px 0 deepskyblue,
+      96px 0 hotpink,
+      120px 0 gold,
+      144px 0 limegreen,
+      168px 0 deepskyblue;
+  animation: twinkle 2.5s infinite alternate;
 }
 
-/* 💡 LIGHT BULBS */
+/* BOTTOM LIGHTS */
 .christmas-card::after {
   content: "";
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-
-  background:
-    /* TOP */
-      radial-gradient(circle at 12% 4%, red 0px, red 4px, transparent 5px),
-      radial-gradient(circle at 24% 6%, gold 0px, gold 4px, transparent 5px),
-      radial-gradient(circle at 36% 4%, limegreen 0px, limegreen 4px, transparent 5px),
-      radial-gradient(circle at 48% 6%, deepskyblue 0px, deepskyblue 4px, transparent 5px),
-      radial-gradient(circle at 60% 4%, hotpink 0px, hotpink 4px, transparent 5px),
-      radial-gradient(circle at 72% 6%, gold 0px, gold 4px, transparent 5px),
-      radial-gradient(circle at 84% 4%, limegreen 0px, limegreen 4px, transparent 5px),
-
-        /* RIGHT */
-      radial-gradient(circle at 96% 20%, red 0px, red 4px, transparent 5px),
-      radial-gradient(circle at 94% 35%, gold 0px, gold 4px, transparent 5px),
-      radial-gradient(circle at 96% 50%, deepskyblue 0px, deepskyblue 4px, transparent 5px),
-      radial-gradient(circle at 94% 65%, limegreen 0px, limegreen 4px, transparent 5px),
-      radial-gradient(circle at 96% 80%, hotpink 0px, hotpink 4px, transparent 5px),
-
-        /* BOTTOM */
-      radial-gradient(circle at 84% 96%, gold 0px, gold 4px, transparent 5px),
-      radial-gradient(circle at 72% 94%, red 0px, red 4px, transparent 5px),
-      radial-gradient(circle at 60% 96%, limegreen 0px, limegreen 4px, transparent 5px),
-      radial-gradient(circle at 48% 94%, deepskyblue 0px, deepskyblue 4px, transparent 5px),
-      radial-gradient(circle at 36% 96%, hotpink 0px, hotpink 4px, transparent 5px),
-      radial-gradient(circle at 24% 94%, gold 0px, gold 4px, transparent 5px),
-      radial-gradient(circle at 12% 96%, red 0px, red 4px, transparent 5px),
-
-        /* LEFT */
-      radial-gradient(circle at 4% 80%, limegreen 0px, limegreen 4px, transparent 5px),
-      radial-gradient(circle at 6% 65%, deepskyblue 0px, deepskyblue 4px, transparent 5px),
-      radial-gradient(circle at 4% 50%, hotpink 0px, hotpink 4px, transparent 5px),
-      radial-gradient(circle at 6% 35%, gold 0px, gold 4px, transparent 5px),
-      radial-gradient(circle at 4% 20%, red 0px, red 4px, transparent 5px);
-
-
-  animation: light-sequence 3.5s infinite steps(1);
+  bottom: 6px;
+  right: 12px;
+  width: 8px;
+  height: 8px;
+  background: gold;
+  border-radius: 50%;
+  box-shadow:
+      -24px 0 red,
+      -48px 0 limegreen,
+      -72px 0 deepskyblue,
+      -96px 0 hotpink,
+      -120px 0 red,
+      -144px 0 limegreen,
+      -168px 0 deepskyblue;
+  animation: twinkle 3s infinite alternate-reverse;
 }
 
-/* ✨ BLINKING SEQUENCE */
-@keyframes light-sequence {
-  0%   { filter: brightness(0.6); }
-  20%  { filter: brightness(1.1) drop-shadow(0 0 4px rgba(255,255,255,0.5)); }
-  40%  { filter: brightness(0.5); }
-  60%  { filter: brightness(1.2) drop-shadow(0 0 6px rgba(255,255,255,0.7)); }
-  80%  { filter: brightness(0.7); }
-  100% { filter: brightness(1); }
+/* ✨ TWINKLE ANIMATION */
+@keyframes twinkle {
+  0% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.3));
+  }
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
+  }
 }
-
-
-
 
 
 .snow-canvas-wrapper {
