@@ -1,11 +1,8 @@
 <template>
-  <div class="snow-container">
-    <div class="snow"></div>
-    <div class="snow snow2"></div>
-    <div class="snow snow3"></div>
-  </div>
-
   <div class="w-full max-w-md mx-auto relative z-10">
+    <div class="snow-canvas-wrapper">
+      <canvas ref="snowCanvas"></canvas>
+    </div>
 
     <div v-if="showTimer" class="mb-4 text-center">
         <div class="bg-red-400 text-white rounded-full py-2 px-4 inline-block shadow-lg">
@@ -434,7 +431,15 @@
 export default {
     data() {
         return {
-            currentStep: 0,
+          snowflakes: [],
+          snowCtx: null,
+          snowWidth: 0,
+          snowHeight: 0,
+          snowAnimationId: null,
+          windStrength: 0.6, // 🌬 stronger = more drift
+          snowDensity: 120, // ❄️ increase / decrease snow amount
+
+          currentStep: 0,
             gifLoaded: false,
             gifFinished: true,
             form: {
@@ -454,11 +459,15 @@ export default {
         }
     },
     mounted() {
-        this.updateTimer();
+      this.initSnow();
+      window.addEventListener('resize', this.resizeSnowCanvas);
+      this.updateTimer();
         this.timerInterval = setInterval(this.updateTimer, 1000);
     },
     beforeUnmount() {
-        if (this.timerInterval) {
+      cancelAnimationFrame(this.snowAnimationId);
+      window.removeEventListener('resize', this.resizeSnowCanvas);
+      if (this.timerInterval) {
             clearInterval(this.timerInterval);
         }
     },
@@ -575,92 +584,80 @@ export default {
                 this.isSubmitting = false;
             }
         },
+      initSnow() {
+        const canvas = this.$refs.snowCanvas;
+        this.snowCtx = canvas.getContext('2d');
+
+        this.resizeSnowCanvas();
+
+        // Create snowflakes
+        this.snowflakes = Array.from({ length: this.snowDensity }, () =>
+            this.createSnowflake()
+        );
+
+        this.animateSnow();
+      },
+
+      resizeSnowCanvas() {
+        const canvas = this.$refs.snowCanvas;
+        this.snowWidth = canvas.width = window.innerWidth;
+        this.snowHeight = canvas.height = window.innerHeight;
+      },
+
+      createSnowflake() {
+        return {
+          x: Math.random() * this.snowWidth,
+          y: Math.random() * this.snowHeight,
+          radius: Math.random() * 2 + 1,
+          speedY: Math.random() * 1.5 + 0.5,
+          speedX: (Math.random() - 0.5) * this.windStrength,
+          drift: Math.random() * 0.6 + 0.2
+        };
+      },
+
+      animateSnow() {
+        const ctx = this.snowCtx;
+        ctx.clearRect(0, 0, this.snowWidth, this.snowHeight);
+
+        for (const flake of this.snowflakes) {
+          flake.y += flake.speedY;
+          flake.x += flake.speedX + Math.sin(flake.y * 0.01) * flake.drift;
+
+          if (flake.y > this.snowHeight) {
+            Object.assign(flake, this.createSnowflake(), { y: -5 });
+          }
+
+          if (flake.x > this.snowWidth) flake.x = 0;
+          if (flake.x < 0) flake.x = this.snowWidth;
+
+          ctx.beginPath();
+          ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+          ctx.fill();
+        }
+
+        this.snowAnimationId = requestAnimationFrame(this.animateSnow);
+      },
+
     }
 }
 </script>
 
 <style scoped>
-/* ❄️ Snow background */
-.snow-container {
+.snow-canvas-wrapper {
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: 0;
-  overflow: hidden;
+  pointer-events: none;
 }
 
-/* Base snow layer */
-.snow,
-.snow2,
-.snow3 {
-  position: absolute;
-  inset: 0;
-  background-repeat: repeat;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+canvas {
+  width: 100%;
+  height: 100%;
 }
-
-/* ❄️ Front layer — fast, dense */
-.snow {
-  background-image:
-      radial-gradient(4px 4px at 20px 30px, white 100%, transparent),
-      radial-gradient(3px 3px at 60px 90px, white 100%, transparent),
-      radial-gradient(2px 2px at 120px 60px, white 100%, transparent),
-      radial-gradient(3px 3px at 180px 140px, white 100%, transparent),
-      radial-gradient(2px 2px at 240px 100px, white 100%, transparent);
-  background-size: 200px 200px;
-  animation: snow-flow 12s linear infinite;
-  opacity: 0.8;
+.relative {
+  z-index: 1;
 }
-
-/* ❄️ Middle layer */
-.snow2 {
-  background-image:
-      radial-gradient(3px 3px at 40px 40px, white 100%, transparent),
-      radial-gradient(2px 2px at 100px 120px, white 100%, transparent),
-      radial-gradient(3px 3px at 160px 80px, white 100%, transparent);
-  background-size: 300px 300px;
-  animation: snow-flow-2 20s linear infinite;
-  opacity: 0.5;
-}
-
-/* ❄️ Back layer — slow, soft */
-.snow3 {
-  background-image:
-      radial-gradient(2px 2px at 80px 60px, white 100%, transparent),
-      radial-gradient(2px 2px at 200px 160px, white 100%, transparent);
-  background-size: 400px 400px;
-  animation: snow-flow-3 30s linear infinite;
-  opacity: 0.3;
-}
-
-@keyframes snow-flow {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 200px 200px;
-  }
-}
-@keyframes snow-flow-2 {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 300px 300px;
-  }
-}
-
-@keyframes snow-flow-3 {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 400px 400px;
-  }
-}
-
-
 
 .mascot-red {
     width: 120px;
