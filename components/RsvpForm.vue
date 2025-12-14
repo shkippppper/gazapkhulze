@@ -86,21 +86,21 @@
                     <button
                         @click="selectOption('coming', 'კი')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.coming === 'კი' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.coming === 'კი' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         კი
                     </button>
                     <button
                         @click="selectOption('coming', 'არა')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.coming === 'არა' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.coming === 'არა' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         არა
                     </button>
                     <button
                         @click="selectOption('coming', 'კი, +1')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.coming === 'კი, +1' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.coming === 'კი, +1' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         კი, +1
                     </button>
@@ -115,7 +115,7 @@
                     </button>
                     <button
                         @click="nextStep"
-                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
+                        class="px-8 py-3 bg-cyan-500 text-white rounded-full font-medium hover:bg-cyan-500 transition-colors border "
                         :disabled="!form.coming"
                     >
                         შემდეგი
@@ -136,28 +136,28 @@
                     <button
                         @click="selectOption('food', 'ყველაფერს')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.food === 'ყველაფერს' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.food === 'ყველაფერს' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         ყველაფერს
                     </button>
                     <button
                         @click="selectOption('food', 'ვეგანი ვარ')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.food === 'ვეგანი ვარ' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.food === 'ვეგანი ვარ' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         ვეგანი ვარ
                     </button>
                     <button
                         @click="selectOption('food', 'ვეგეტარიანელი ვარ')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.food === 'ვეგეტარიანელი ვარ' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.food === 'ვეგეტარიანელი ვარ' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         ვეგეტარიანელი ვარ
                     </button>
                     <button
                         @click="selectOption('food', 'მარხვაზე ვარ')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.food === 'მარხვაზე ვარ' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.food === 'მარხვაზე ვარ' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         მარხვაზე ვარ
                     </button>
@@ -172,7 +172,7 @@
                     </button>
                     <button
                         @click="nextStep"
-                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
+                        class="px-8 py-3 bg-cyan-500 text-white rounded-full font-medium hover:bg-cyan-500 transition-colors border "
                         :disabled="!form.food"
                     >
                         შემდეგი
@@ -193,35 +193,35 @@
                     <button
                         @click="selectOption('drink', 'ღვინო')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.drink === 'ღვინო' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.drink === 'ღვინო' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         ღვინო
                     </button>
                     <button
                         @click="selectOption('drink', 'ლუდი')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.drink === 'ლუდი' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.drink === 'ლუდი' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         ლუდი
                     </button>
                     <button
                         @click="selectOption('drink', 'არაყი')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.drink === 'არაყი' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.drink === 'არაყი' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         არაყი
                     </button>
                     <button
                         @click="selectOption('drink', 'არ ვსვავ')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.drink === 'არ ვსვავ' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.drink === 'არ ვსვავ' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         არ ვსვავ
                     </button>
                     <button
                         @click="selectOption('drink', 'ჩემით მოვიტან')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.drink === 'ჩემით მოვიტან' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.drink === 'ჩემით მოვიტან' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         ჩემით მოვიტან
                     </button>
@@ -236,7 +236,7 @@
                     </button>
                     <button
                         @click="nextStep"
-                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
+                        class="px-8 py-3 bg-cyan-400 text-white rounded-full font-medium hover:bg-cyan-500 transition-colors border "
                         :disabled="!form.drink"
                     >
                         შემდეგი
@@ -257,42 +257,42 @@
                     <button
                         @click="selectOption('music', 'ქართულები და ჩქარები')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.music === 'ქართულები და ჩქარები' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.music === 'ქართულები და ჩქარები' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         ქართულები და ჩქარები
                     </button>
                     <button
                         @click="selectOption('music', 'პოპი')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.music === 'პოპი' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.music === 'პოპი' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         პოპი
                     </button>
                     <button
                         @click="selectOption('music', 'ჰაუსი')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.music === 'ჰაუსი' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.music === 'ჰაუსი' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         ჰაუსი
                     </button>
                     <button
                         @click="selectOption('music', 'დისკო')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.music === 'დისკო' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.music === 'დისკო' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         დისკო
                     </button>
                     <button
                         @click="selectOption('music', 'რეპი')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.music === 'რეპი' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.music === 'რეპი' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         რეპი
                     </button>
                     <button
                         @click="selectOption('music', 'სულერთია')"
                         class="w-full py-3 rounded-full font-medium text-center transition-colors border"
-                        :class="form.music === 'სულერთია' ? 'bg-red-500 text-white ' : 'bg-gray-200 text-black '"
+                        :class="form.music === 'სულერთია' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
                     >
                         სულერთია
                     </button>
@@ -307,7 +307,7 @@
                     </button>
                     <button
                         @click="nextStep"
-                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
+                        class="px-8 py-3 bg-cyan-400 text-white rounded-full font-medium hover:bg-cyan-500 transition-colors border "
                         :disabled="!form.music"
                     >
                         შემდეგი
@@ -342,7 +342,7 @@
                     </button>
                     <button
                         @click="submitForm(false)"
-                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
+                        class="px-8 py-3 bg-cyan-400 text-white rounded-full font-medium hover:bg-cyan-500 transition-colors border "
                         :disabled="isSubmitting"
                     >
                         {{ isSubmitting ? 'შენახვა...' : 'შენახვა' }}
@@ -417,7 +417,7 @@
 
                 <button
                     @click="goBackToForm"
-                    class="w-full py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
+                    class="w-full py-3 bg-cyan-400 text-white rounded-full font-medium hover:bg-cyan-500 transition-colors border "
                 >
                     გადავიფიქრე
                 </button>
