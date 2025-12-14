@@ -597,7 +597,11 @@ export default {
       radial-gradient(3px 3px at 40px 70px, #6fe2ff 100%, transparent),
       radial-gradient(2px 2px at 90px 40px, #6fe2ff 100%, transparent),
       radial-gradient(3px 3px at 130px 80px, #6fe2ff 100%, transparent),
-      radial-gradient(2px 2px at 160px 120px, #6fe2ff 100%, transparent);
+      radial-gradient(2px 2px at 160px 120px, #6fe2ff 100%, transparent),
+      radial-gradient(3px 3px at 200px 50px, #6fe2ff 100%, transparent),
+      radial-gradient(2px 2px at 240px 100px, #6fe2ff 100%, transparent),
+      radial-gradient(4px 4px at 280px 150px, #6fe2ff 100%, transparent);
+
   background-size: 200px 200px;
   animation: snow-fall 12s linear infinite;
   opacity: 0.8;
@@ -617,10 +621,10 @@ export default {
 
 @keyframes snow-fall {
   from {
-    transform: translateY(0);
+    transform: translate(0, 0);
   }
   to {
-    transform: translateY(100vh);
+    transform: translate(60px, 100vh);
   }
 }
 
