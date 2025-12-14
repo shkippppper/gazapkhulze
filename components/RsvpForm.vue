@@ -25,7 +25,7 @@
                     @click="nextStep"
                     class="w-full py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
                 >
-                    შემდეგი
+                    შემდეგი გვერდი
                 </button>
             </div>
         </div>
