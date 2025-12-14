@@ -485,6 +485,9 @@ export default {
                 this.submitForm(true)
                 return
             }
+            if (this.currentStep === 6) {
+              this.currentStep++
+            }
 
             if (this.currentStep < 10) {
                 this.currentStep++
