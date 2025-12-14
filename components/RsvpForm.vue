@@ -23,7 +23,7 @@
 
                 <button
                     @click="nextStep"
-                    class="w-full py-3 bg-red-400 text-white rounded-full font-medium hover:bg-cyan-500 transition-colors border "
+                    class="w-full py-3 bg-cyan-400 text-white rounded-full font-medium hover:bg-cyan-500 transition-colors border "
                 >
                     შემდეგი გვერდი
                 </button>
@@ -61,7 +61,7 @@
                     </button>
                     <button
                         @click="nextStep"
-                        class="px-8 py-3 bg-red-400 text-white rounded-full font-medium hover:bg-red-500 transition-colors border "
+                        class="px-8 py-3 bg-cyan-400 text-white rounded-full font-medium hover:bg-cyan-500 transition-colors border "
                         :disabled="!form.surname || !form.name"
                     >
                         შემდეგი
