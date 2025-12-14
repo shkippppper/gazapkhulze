@@ -668,7 +668,6 @@ export default {
 
   background:
     /* TOP */
-    /* TOP */
       radial-gradient(circle at 12% 4%, red 0px, red 4px, transparent 5px),
       radial-gradient(circle at 24% 6%, gold 0px, gold 4px, transparent 5px),
       radial-gradient(circle at 36% 4%, limegreen 0px, limegreen 4px, transparent 5px),
@@ -717,7 +716,7 @@ export default {
 
 
 
-//Snow
+
 .snow-canvas-wrapper {
   position: fixed;
   inset: 0;
