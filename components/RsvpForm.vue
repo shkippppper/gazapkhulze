@@ -14,7 +14,7 @@
         <!-- Step 1: Invitation -->
 
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black christmas-card"
             :style="{ transform: `translateX(${currentStep === 0 ? '0' : '-100%'})`, opacity: currentStep === 0 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
@@ -35,7 +35,7 @@
         </div>
 
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black "
             :style="{ transform: `translateX(${currentStep === 1 ? '0' : currentStep < 1 ? '100%' : '-100%'})`, opacity: currentStep === 1 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -76,7 +76,7 @@
 
         <!-- Step 2: Coming or not -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black christmas-card"
             :style="{ transform: `translateX(${currentStep === 2 ? '0' : currentStep < 2 ? '100%' : '-100%'})`, opacity: currentStep === 2 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -126,7 +126,7 @@
 
         <!-- Step 2: Food preference -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black christmas-card"
             :style="{ transform: `translateX(${currentStep === 3 ? '0' : currentStep < 3 ? '100%' : '-100%'})`, opacity: currentStep === 3 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -183,7 +183,7 @@
 
         <!-- Step 3: Drink Preference -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black christmas-card"
             :style="{ transform: `translateX(${currentStep === 4 ? '0' : currentStep < 4 ? '100%' : '-100%'})`, opacity: currentStep === 4 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -247,7 +247,7 @@
 
         <!-- Step 4: Music Preference -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black christmas-card"
             :style="{ transform: `translateX(${currentStep === 5 ? '0' : currentStep < 5 ? '100%' : '-100%'})`, opacity: currentStep === 5 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -318,7 +318,7 @@
 
         <!-- Step 5: Extra Comments -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black christmas-card"
             :style="{ transform: `translateX(${currentStep === 6 ? '0' : currentStep < 6 ? '100%' : '-100%'})`, opacity: currentStep === 6 ? '1' : '0' }"
         >
             <div class="flex flex-col">
@@ -353,7 +353,7 @@
 
         <!-- Step 6: Confirmation -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black christmas-card"
             :style="{ transform: `translateX(${currentStep === 7 ? '0' : currentStep < 7 ? '100%' : '-100%'})`, opacity: currentStep === 7 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
@@ -374,7 +374,7 @@
 
         <!-- Last step: Finish -->
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black christmas-card"
             :style="{ transform: `translateX(${currentStep === 8 ? '0' : currentStep < 8 ? '100%' : '-100%'})`, opacity: currentStep === 8 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
@@ -407,7 +407,7 @@
         <!-- No Step -->
 
         <div
-            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black"
+            class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black christmas-card"
             :style="{ transform: `translateX(${currentStep === 9 ? '0' : currentStep < 9 ? '100%' : '-100%'})`, opacity: currentStep === 9 ? '1' : '0' }"
         >
             <div class="flex flex-col items-center text-center">
@@ -644,6 +644,68 @@ export default {
 </script>
 
 <style scoped>
+
+/* 🎄 CHRISTMAS LIGHTS */
+.christmas-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* TOP LIGHTS */
+.christmas-card::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+  box-shadow:
+      24px 0 gold,
+      48px 0 limegreen,
+      72px 0 deepskyblue,
+      96px 0 hotpink,
+      120px 0 gold,
+      144px 0 limegreen,
+      168px 0 deepskyblue;
+  animation: twinkle 2.5s infinite alternate;
+}
+
+/* BOTTOM LIGHTS */
+.christmas-card::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  right: 12px;
+  width: 8px;
+  height: 8px;
+  background: gold;
+  border-radius: 50%;
+  box-shadow:
+      -24px 0 red,
+      -48px 0 limegreen,
+      -72px 0 deepskyblue,
+      -96px 0 hotpink,
+      -120px 0 red,
+      -144px 0 limegreen,
+      -168px 0 deepskyblue;
+  animation: twinkle 3s infinite alternate-reverse;
+}
+
+/* ✨ TWINKLE ANIMATION */
+@keyframes twinkle {
+  0% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.3));
+  }
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
+  }
+}
+
+
 .snow-canvas-wrapper {
   position: fixed;
   inset: 0;
