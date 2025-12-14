@@ -487,8 +487,8 @@ export default {
             }
 
 
-          if (this.currentStep === 6 || this.currentStep === 7) {
-            this.currentStep = 8
+          if (this.currentStep === 5 || this.currentStep === 6) {
+            this.currentStep = 7
           }
 
             if (this.currentStep < 10) {
