@@ -23,8 +23,8 @@
                 <p class="mb-2 text-black">1 იანვარი, 02:00 საათი</p>
                 <p class="mb-6 text-black">გაზაფხულის ქუჩა №30</p>
 
-                <v-if="isChristmas" img src="/festive-mascot.png" alt="Mascot" class="w-48 h-auto mb-8" />
-                <v-else img src="/mascot.png" alt="Mascot" class="w-48 h-auto mb-8" />
+                <img v-if="isChristmas" src="/festive-mascot.png" alt="Mascot" class="w-48 h-auto mb-8" />
+                <img v-else src="/mascot.png" alt="Mascot" class="w-48 h-auto mb-8" />
 
                 <button
                     @click="nextStep"
