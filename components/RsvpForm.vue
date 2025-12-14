@@ -619,8 +619,8 @@ export default {
       radial-gradient(3px 3px at 40px 40px, white 100%, transparent),
       radial-gradient(2px 2px at 100px 120px, white 100%, transparent),
       radial-gradient(3px 3px at 160px 80px, white 100%, transparent);
-  background-size: 280px 280px;
-  animation: snow-flow 20s linear infinite;
+  background-size: 300px 300px;
+  animation: snow-flow-2 20s linear infinite;
   opacity: 0.5;
 }
 
@@ -629,8 +629,8 @@ export default {
   background-image:
       radial-gradient(2px 2px at 80px 60px, white 100%, transparent),
       radial-gradient(2px 2px at 200px 160px, white 100%, transparent);
-  background-size: 360px 360px;
-  animation: snow-flow 30s linear infinite;
+  background-size: 400px 400px;
+  animation: snow-flow-3 30s linear infinite;
   opacity: 0.3;
 }
 
@@ -639,9 +639,27 @@ export default {
     background-position: 0 0;
   }
   to {
-    background-position: 80px 100vh;
+    background-position: 200px 200px;
   }
 }
+@keyframes snow-flow-2 {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 300px 300px;
+  }
+}
+
+@keyframes snow-flow-3 {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 400px 400px;
+  }
+}
+
 
 
 .mascot-red {
