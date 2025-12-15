@@ -500,22 +500,27 @@ export default {
             this.timeRemaining = `${days} დღე ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         },
         nextStep() {
+            // Handle "არა" (not coming) - go to rejection screen
             if (this.form.coming === "არა" && this.currentStep === 2) {
                 this.currentStep = 9
                 this.submitForm(true)
                 return
             }
 
+            // After music selection (step 5), submit the form and go to recommendation
+            if (this.currentStep === 5) {
+                this.submitForm(true) // Submit without auto-advancing
+                this.currentStep = 7  // Go to recommendation screen
+                return
+            }
 
-          if (this.currentStep === 5 || this.currentStep === 6) {
-            this.currentStep = 7
-          }
-
+            // Normal progression
             if (this.currentStep < 10) {
                 this.currentStep++
             }
-            if (this.currentStep === 8) {
 
+            // Animation for final step
+            if (this.currentStep === 8) {
                 setTimeout(() => {
                     this.gifFinished = false;
                     this.gifLoaded = true
