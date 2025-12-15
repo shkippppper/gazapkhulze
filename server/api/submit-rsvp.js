@@ -52,7 +52,7 @@ export default defineEventHandler(async (event) => {
             console.log('Insert successful:', result);
             return { success: true, id: result[0].id };
 
-        } catch (insertError: any) {
+        } catch (insertError) {
             // If table doesn't exist, create it and retry
             if (insertError?.message?.includes('relation "rsvps" does not exist')) {
                 console.log('Table does not exist, creating...');
@@ -99,7 +99,7 @@ export default defineEventHandler(async (event) => {
             return { success: false, error: `Database error: ${insertError.message}` };
         }
 
-    } catch (error: any) {
+    } catch (error) {
         console.error('Unhandled error:', error);
         return { success: false, error: `Failed to submit RSVP: ${error.message || 'Unknown error'}` };
     }
