@@ -507,20 +507,12 @@ export default {
                 return
             }
 
-            // After music selection (step 5), submit the form and go to recommendation
+            // After music selection (step 5), submit the form and go to final screen
             if (this.currentStep === 5) {
-                this.submitForm(true) // Submit without auto-advancing
-                this.currentStep = 7  // Go to recommendation screen
-                return
-            }
-
-            // Normal progression
-            if (this.currentStep < 10) {
-                this.currentStep++
-            }
-
-            // Animation for final step
-            if (this.currentStep === 8) {
+                this.submitForm(true)
+                this.currentStep = 8  // Go directly to final screen
+                
+                // Trigger the stamp animation
                 setTimeout(() => {
                     this.gifFinished = false;
                     this.gifLoaded = true
@@ -533,6 +525,12 @@ export default {
                         this.gifFinished = true;
                     }, 800);
                 }, 700);
+                return
+            }
+
+            // Normal progression
+            if (this.currentStep < 10) {
+                this.currentStep++
             }
         },
         prevStep() {
