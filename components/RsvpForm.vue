@@ -316,11 +316,51 @@
                 </div>
             </div>
         </div>
+      <div
+          class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
+          :style="{ transform: `translateX(${currentStep === 6 ? '0' : currentStep < 6 ? '100%' : '-100%'})`, opacity: currentStep === 6 ? '1' : '0' }"
+      >
+        <div class="flex flex-col">
+          <h2 class="text-xl font-bold mb-6 text-black">6.მიიღებ ტურნინრში მონაწილეობას?</h2>
 
+          <div class="space-y-3 mb-8">
+            <button
+                @click="selectOption('extra', 'კი')"
+                class="w-full py-3 rounded-full font-medium text-center transition-colors border"
+                :class="form.extra === 'კი' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
+            >
+              კი
+            </button>
+            <button
+                @click="selectOption('extra', 'არა')"
+                class="w-full py-3 rounded-full font-medium text-center transition-colors border"
+                :class="form.extra === 'არა' ? 'bg-cyan-500 text-white ' : 'bg-gray-200 text-black '"
+            >
+              არა
+            </button>
+          </div>
+
+          <div class="flex justify-between">
+            <button
+                @click="prevStep"
+                class="px-8 py-3 bg-gray-200 text-black rounded-full font-medium hover:bg-gray-300 transition-colors border "
+            >
+              დაბრუნება
+            </button>
+            <button
+                @click="nextStep"
+                class="px-8 py-3 bg-cyan-400 text-white rounded-full font-medium hover:bg-cyan-500 transition-colors border "
+                :disabled="!form.drink"
+            >
+              შემდეგი
+            </button>
+          </div>
+        </div>
+      </div>
         <!-- Step 5: Extra Comments -->
         <div
             class="absolute w-full bg-[#f8f8f8] rounded-[20px] shadow-lg transition-all duration-500 p-6 text-black background-transparency"
-            :style="{ transform: `translateX(${currentStep === 6 ? '0' : currentStep < 6 ? '100%' : '-100%'})`, opacity: currentStep === 6 ? '1' : '0' }"
+            :style="{ transform: `translateX(${currentStep === 9 ? '0' : currentStep < 9 ? '100%' : '-100%'})`, opacity: currentStep === 9 ? '1' : '0' }"
         >
             <div class="flex flex-col">
                 <h2 class="text-xl font-bold mb-6 text-black">6. შეკვეთა დიჯეისთან მთვრალზე</h2>
@@ -508,7 +548,7 @@ export default {
             }
 
             // After music selection (step 5), submit the form and go to final screen
-            if (this.currentStep === 5) {
+            if (this.currentStep === 6) {
                 this.submitForm(true)
                 this.currentStep = 8  // Go directly to final screen
                 
